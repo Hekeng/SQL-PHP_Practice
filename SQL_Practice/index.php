@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Proba</title>
-</head>
+<?php
+require_once __DIR__ . '/config.php';
 
-<!-- <h1>Привет!</h1>
-<?php echo "Это кусок PHP"; ?>
-<p>Дальше опять HTML</p> -->
 
-<body>
+require_once INCLUDES_PATH . '/helpers.php';
+
+
+require_once TEMPLATES_PATH . '/header.php';
+echo "<br>";
+
+?>
+
 
 	<div class="main_window">
 
