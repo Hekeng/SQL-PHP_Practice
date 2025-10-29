@@ -1,10 +1,11 @@
 /* визуализация блоков удалить */
 * {
-	outline: 1px solid #DE0C35;
-	border: 1px solid red;
+	/* outline: 1px solid #DE0C35;
+	border: 1px solid red; */
 }
 
 /* обнуление стилей */
+
 
 body {
 	box-sizing: border-box;
@@ -13,12 +14,12 @@ body {
 	padding: 0;
 	border: none;
 	/* display: inline-block; */
-	/* font-size: 0;  */
+	/* font-size: 0;   */
 	width: 100%;
 }
 
 a, a:visited {
-    /* color: inherit; */
+    color: inherit;
     text-decoration: none;
 	color: var(--mein-black);
 	display: inline-block;
@@ -37,7 +38,7 @@ button {
 
 input {
 	padding: 0;
-	/* outline: 1px solid var(--darkgrey); */
+	outline: 1px solid var(--darkgrey);
 	border: none; 
 }
 

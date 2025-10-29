@@ -1,0 +1,17 @@
+/* визуализация блоков удалить */
+* {
+	/* outline: 1px solid #DE0C35;
+	border: 1px solid red; */
+}
+
+.main_window > div {
+    display: none;
+    /* Убедимся, что все окна не занимают место, пока они не активны */
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Добавляем плавность для красоты */
+}
+
+.main_window .active {
+    display: block; /* Показываем окно */
+    opacity: 1;     /* Делаем его видимым */
+}

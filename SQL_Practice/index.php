@@ -1,19 +1,19 @@
 <?php
 require_once __DIR__ . '/config.php';
 
-
 require_once INCLUDES_PATH . '/helpers.php';
+require_once TEMPLATES_PATH . '/header.tpl';
 
-
-require_once TEMPLATES_PATH . '/header.php';
 echo "<br>";
+
+
 
 ?>
 
 
 	<div class="main_window">
 
-		<div class="avtorizacion">
+		<div  class="avtorizacion active" id="auth_window">
 
 			<form action="" method="post">
 				<h2>Login</h2>
@@ -34,7 +34,7 @@ echo "<br>";
 
 		</div>
 
-		<div class="new_user_window">
+		<div class="new_user_window" id="reg_window">
 			<form action="" method="post">
 				<h2>New user</h2>
 				<label for="new_user_id">User name</label>
@@ -58,7 +58,7 @@ echo "<br>";
 
 		</div>
 
-		<div class="user_window">
+		<div class="user_window" id="user_panel">
 			<h2>Welcome, <span class="user_name"></span></h2>
 			<div class="catalog">
 				<h3>Catalog</h3>
@@ -69,22 +69,22 @@ echo "<br>";
 							<span id="sku_code">213213</span>
 							<span id="sku_name">Lorem ipsum dolor sit amet.</span>
 							<span id="sku_price">0.25</span>
-							<input type="text" id="sku_count" placeholder="0">
-							<input type="checkbox" id="sku_check">
+							<input type="text" id="sku_count1" placeholder="0">
+							<input type="checkbox" id="sku_check1">
 						</li>
 						<li>
 							<span id="sku_code">213213</span>
 							<span id="sku_name">Lorem ipsum dolor sit amet.</span>
 							<span id="sku_price">0.25</span>
-							<input type="text" id="sku_count" placeholder="0">
-							<input type="checkbox" id="sku_check">
+							<input type="text" id="sku_count2" placeholder="0">
+							<input type="checkbox" id="sku_check2">
 						</li>
 						<li>
 							<span id="sku_code">213213</span>
 							<span id="sku_name">Lorem ipsum dolor sit amet.</span>
 							<span id="sku_price">0.25</span>
-							<input type="text" id="sku_count" placeholder="0">
-							<input type="checkbox" id="sku_check">
+							<input type="text" id="sku_count3" placeholder="0">
+							<input type="checkbox" id="sku_check3">
 						</li>
 					</ul>
 					<button type="button" id="confirm_order">buy</button>
@@ -92,14 +92,14 @@ echo "<br>";
 			</div>
 		</div>
 
-		<div class="admin_window">
+		<div class="admin_window" id="admin_panel">
 
 		</div>
 
 	</div>
 	
+<?php
+	require_once TEMPLATES_PATH . '/footer.tpl';
+?>
 
-	<script src="script.js"></script>
-</body>
-</html>
 
