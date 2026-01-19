@@ -34,7 +34,8 @@
         </nav>
 
         <div class="auth-box">
-            <button type="button" class="btn-auth" id="login_btn">Sign In</button>
+            <a href="#login" class="btn-main">Sign In</a>
+            .avatar
         </div>
 
     </div>
