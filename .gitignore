@@ -1,0 +1,22 @@
+# Временные файлы системы
+Thumbs.db
+.DS_Store
+
+# Настройки VS Code
+.vscode/
+*.code-workspace
+
+# Логи и временные файлы XAMPP / PHP
+*.log
+tmp/
+temp/
+
+# Если у тебя появятся зависимости (например, через Composer)
+vendor/
+
+# Специфические файлы Windows
+desktop.ini
+
+# Исключаем файлы конфигурации с паролями (если будешь их создавать)
+.env
+config.local.php
