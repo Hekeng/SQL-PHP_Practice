@@ -1,6 +1,9 @@
-<!-- 
-<script src="script.js"></script> 
--->
+<?php 
+
+	add_js('script');
+	
+	
+?>
 
 
 </body>

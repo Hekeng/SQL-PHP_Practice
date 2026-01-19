@@ -5,7 +5,7 @@ function add_css($filename) {
     // В идеале, используйте константу для базового URL, но для локальной работы подойдет и абсолютный путь.
     // Здесь мы просто генерируем HTML-тег
 
-    echo '<link rel="stylesheet" href="' . BASE_URL . '/assets/css/' . htmlspecialchars($filename) . '.css">';
+    echo '<link rel="stylesheet" href="' . BASE_URL . '/assets/css/' . htmlspecialchars($filename) . '.css?v=' . time() . '">';
 }
 
 // Функция для подключения JavaScript

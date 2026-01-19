@@ -9,19 +9,23 @@
 
 body {
 	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
+	font-family: var(--main-font);
 	margin: 0;
 	padding: 0;
 	border: none;
-	/* display: inline-block; */
-	/* font-size: 0;    */
+	/* display: inline-block;  */
+	font-size: 0;    
 	width: 100%;
+}
+/* позволяет придердиваться внешних границ*/
+*, *::before, *::after { 
+	box-sizing: border-box; 
 }
 
 a, a:visited {
     color: inherit;
     text-decoration: none;
-	color: var(--mein-black);
+	color: var(--color-text);
 	display: inline-block;
 }
 
@@ -32,13 +36,13 @@ ul, ul, li {
 
 button {
 	padding: 0;
-	outline: 1px solid var(--darkgrey);
+	outline: 1px solid var(--gray-300);
 	border: none; 
 }
 
 input {
 	padding: 0;
-	outline: 1px solid var(--darkgrey);
+	outline: 1px solid var(--gray-300);
 	border: none; 
 }
 
@@ -48,4 +52,8 @@ span, p {
 
 h1, h2, h3 {
 	font-size: 30px;
+}
+
+a{
+	font-size: 14px;
 }

@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Proba</title>
 <?php 
-	// add_css('reset'); 
+	add_css('reset'); 
 	add_css('style'); 
 
 	add_js('script');
@@ -17,4 +17,26 @@
 </head>
 
 <body>
+
+<header class="main-header">
+    <div class="header-container">
+        
+        <a href="/" class="logo-box">
+            <strong>Alt-Inflation</strong>
+        </a>
+
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
+                <li class="nav-item"><a href="#responsibility" class="nav-link">Responsibility</a></li>
+            </ul>
+        </nav>
+
+        <div class="auth-box">
+            <button type="button" class="btn-auth" id="login_btn">Sign In</button>
+        </div>
+
+    </div>
+</header>
 
