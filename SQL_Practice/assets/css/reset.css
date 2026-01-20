@@ -16,6 +16,7 @@ body {
 	/* display: inline-block;  */
 	font-size: 0;    
 	width: 100%;
+	
 }
 /* позволяет придердиваться внешних границ*/
 *, *::before, *::after { 
@@ -46,7 +47,7 @@ input {
 	border: none; 
 }
 
-span, p {
+span, p, label {
 	font-size: 14px;
 }
 
