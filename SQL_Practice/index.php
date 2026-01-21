@@ -4,25 +4,30 @@ require_once __DIR__ . '/config.php';
 require_once INCLUDES_PATH . '/helpers.php';
 require_once TEMPLATES_PATH . '/header.tpl';
 
-echo "<br>";
+// echo "<br>";
 
 
 
 ?>
 
+<div class="content-wrapper">
+	<div class="sidebar is-none">
+		
+	</div>
 
 	<div class="main_window ">
 
 		<div class="content active">
 			<div class="some_content ">
-				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod dolor eos distinctio. Fugiat dolorum distinctio inventore sequi ratione? Officia soluta eaque, rem nostrum suscipit velit, unde porro animi in molestiae, iste minus vitae impedit eius vel tempora ducimus accusamus quam minima nulla architecto temporibus cupiditate ipsa tenetur. Sequi ipsum esse, maiores consectetur corporis animi excepturi nulla voluptates nisi, fuga perspiciatis repudiandae officia rem, quisquam placeat qui. Laudantium, doloribus tempora odit consequatur earum hic. Pariatur earum expedita harum autem sunt cupiditate accusantium? Eaque praesentium ratione officia cupiditate vitae facilis velit cum adipisci mollitia! Quasi suscipit pariatur nihil ipsum atque quis tempore.</p>
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod dolor eos distinctio. Fugiat dolorum distinctio inventore sequi ratione? Officia soluta eaque, rem nostrum suscipit velit, unde porro animi in molestiae, iste minus vitae impedit eius vel tempora ducimus accusamus quam minima nulla architecto temporibus cupiditate ipsa tenetur. Sequi ipsum esse, maiores consectetur corporis animi excepturi nulla voluptates nisi, fuga perspiciatis repudiandae officia rem, quisquam placeat qui. Laudantium, doloribus tempora odit consequatur earum hic. Pariatur earum expedita harum autem sunt cupiditate accusantium? Eaque praesentium ratione officia cupiditate vitae facilis velit cum adipisci mollitia! Quasi suscipit pariatur nihil ipsum atque quis tempore.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod dolor eos distinctio. Fugiat dolorum distinctio inventore sequi ratione? Officia soluta eaque, rem nostrum suscipit velit, unde porro animi in molestiae, iste minus vitae impedit eius vel tempora ducimus accusamus quam minima nulla architecto temporibus cupiditate ipsa tenetur. Sequi ipsum esse, maiores consectetur corporis animi excepturi nulla voluptates nisi, fuga perspiciatis repudiandae officia rem, quisquam placeat qui. Laudantium, doloribus tempora odit consequatur earum hic. Pariatur earum expedita harum autem sunt cupiditate accusantium? Eaque praesentium ratione officia cupiditate vitae facilis velit cum adipisci mollitia! Quasi suscipit pariatur nihil ipsum atque quis tempore.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod dolor eos distinctio. Fugiat dolorum distinctio inventore sequi ratione? Officia soluta eaque, rem nostrum suscipit velit, unde porro animi in molestiae, iste minus vitae impedit eius vel tempora ducimus accusamus quam minima nulla architecto temporibus cupiditate ipsa tenetur. Sequi ipsum esse, maiores consectetur corporis animi excepturi nulla voluptates nisi, fuga perspiciatis repudiandae officia rem, quisquam placeat qui. Laudantium, doloribus tempora odit consequatur earum hic. Pariatur earum expedita harum autem sunt cupiditate accusantium? Eaque praesentium ratione officia cupiditate vitae facilis velit cum adipisci mollitia! Quasi suscipit pariatur nihil ipsum atque quis tempore.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod dolor eos distinctio. Fugiat dolorum distinctio inventore sequi ratione? Officia soluta eaque, rem nostrum suscipit velit, unde porro animi in molestiae, iste minus vitae impedit eius vel tempora ducimus accusamus quam minima nulla architecto temporibus cupiditate ipsa tenetur. Sequi ipsum esse, maiores consectetur corporis animi excepturi nulla voluptates nisi, fuga perspiciatis repudiandae officia rem, quisquam placeat qui. Laudantium, doloribus tempora odit consequatur earum hic. Pariatur earum expedita harum autem sunt cupiditate accusantium? Eaque praesentium ratione officia cupiditate vitae facilis velit cum adipisci mollitia! Quasi suscipit pariatur nihil ipsum atque quis tempore.</p>
 			</div>
 		</div>
 		
 
 
-		<div class="auth-overlay active">
+		<div class="auth-overlay ">
 			<div class="auth-card">
+				<button type="button" class="btn-exit">&times;</button>
 				<div class="auth-tabs">
 					<ul>
 						<li><button class="is-active" type="button">authorization</button></li>
@@ -38,7 +43,8 @@ echo "<br>";
 							type="text"
 							name="user_login"
 							id="user_login"
-							placeholder="Login">
+							placeholder="Login"
+							autofocus>
 						<label for="user_pas">Password</label>
 						<input 
 							type="password"
@@ -51,8 +57,8 @@ echo "<br>";
 							class="auth-spacer is-hiden"
 							type="text"
 							placeholder="******"> -->
-						<br>
-						<button class="btn-main" type="submit">send</button>			
+						<!-- <br> -->
+						<button class="btn-submit" type="submit">send</button>			
 					</form>
 
 					<form class="auth-form-reg is-hiden" name="reg_window" id="reg_window" action="" method="post">
@@ -62,7 +68,8 @@ echo "<br>";
 							type="text"
 							name="new_user_login"
 							id="new_user_login"
-							placeholder="Login">
+							placeholder="Login"
+							autofocus>
 						<label for="new_user_pas">Password</label>
 						<input 
 							type="password"
@@ -75,8 +82,8 @@ echo "<br>";
 							name="new_user_pas_rep"
 							id="new_user_pas_rep"
 							placeholder="******">
-						<br>
-						<button class="btn-main" type="submit">registration user</button>
+						<!-- <br> -->
+						<button class="btn-submit" type="submit">registration user</button>
 					</form>
 
 				</div>
@@ -108,6 +115,7 @@ echo "<br>";
 		</div>
 
 	</div>
+</div>
 </div>
 <?php
 	require_once TEMPLATES_PATH . '/footer.tpl';

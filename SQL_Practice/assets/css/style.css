@@ -7,306 +7,364 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
 
-:root {
-    --u: clamp(8px, 0.8vw, 16px);
-
-/* ---------------- ОСНОВНОЙ ЦВЕТ (Slate Teal) ---------------- */
-  --color-primary-100: #d0e4e3; /* Для мягких подсветок фоны карточек, hover */
-  --color-primary-500: #037971; /* Главный цвет: лого, активные элементы */
-  --color-primary-700: #025d57; /* Темнее для наведения (hover) */
-/* ---------------- АКЦЕНТ / КНОПКИ (Burnt Orange) ---------------- */
-  --color-secondary-100: #f9e8d4; /* легкий фон/hover на карточках */
-  --color-secondary-500: #d48444; /* акцентные кнопки, badges, promo */
-  --color-secondary-700: #b56b33; /* hover/active для акцентов */
-/* ---------------- СЕРЫЕ ОТТЕНКИ (Warm & Dusty) ---------------- */
-  --color-gray-50:  #faf9f5; /* фоны блоков и секций */
-  --color-gray-100: #f0ede4; /* светлый фон карточек */
-  --color-gray-300: #d8d3c3; /* бордеры, разделители */
-  --color-gray-500: #7d7d85; /* второстепенный текст */
-  --color-gray-700: #4a4a52; /* Читабельный текст */
-
-  --color-bg:   var(--color-gray-50);
-  --color-text: #303036; /*  "почти черный" с каплей фиолета */
-
-  /* ---------------- СТАТУСЫ ---------------- */
-  --color-success: #63a088;  /* успех, добавлено в корзину */
-  --color-error:   #b14a4a; /* ошибка, форма не прошла */
-  --color-warning: #c9a54d; /* предупреждение, акция скоро закончится */
-  --color-info:    #5b7b7a; /* информационные сообщения */
-  
-  /* ---------------- Шрифты ---------------- */
-      /* Переменные */
-    --main-font: 'Manrope', sans-serif;
-    --fs-small: clamp(12px, 1.2vw, 24px); /*(Подписи, мелкие детали).*/
-    --fs-base: clamp(16px, 1.6vw, 32px); /*(Стандартный текст — золотая середина).*/
-    --fs-h2: clamp(24px, 2.4vw, 48px); /*(Заголовки окон).*/
-    --fs-button: clamp(14px, 1.4vw, 28px); /*(Кнопки часто делают чуть меньше основного текста, но жирнее, чтобы они выглядели аккуратно).*/
- /* ----------- Border Radius System ----------- */
-/*(Border Radius):*/
-
---br-sm: 4px; /*(для маленьких кнопок/инпутов)*/
---br-md: 12px; /*(для основных карточек, как на макете)*/
-
-/* (Shadows): */
---shadow-light: 0 4px 20px rgba(0,0,0,0.2); /*(едва заметная)*/
---shadow-card: 0 10px 30px rgba(0,0,0,0.3); /*(для акцента)*/
-
-/* Тень в покое (едва заметная) */
-  --shd-low: 0 2px 8px rgba(0, 0, 0, 0.2);
-  /* Тень при наведении (эффект полета) */
-  --shd-high: 0 8px 20px rgba(0, 0, 0, 0.3);
-
-/*(Spacings):*/
---gap-page: calc(var(--u) * 2); /*(расстояние между карточками)*/
-
-/*(Transitions):*/
---t-fast: 0.2s ease;
-
+html {
+  font-size: clamp(62.5%, 0.625rem + 0.5vw, 75%);
 }
+
+:root {
+  /* ================= FONT ================= */
+  --font-main: 'Manrope', sans-serif;
+
+  --fs-small: 1.2rem;   /* Caption: (Подписи, мелкие детали) */
+  --fs-base: 1.6rem;    /* Body: основной читаемый текст — золотая середина). */
+  --fs-button: 1.4rem;  /*текст кнопок*/
+  --fs-small-button: 1rem;  /*текст мелких кнопок кнопок*/
+  --fs-h3: 1.8rem;      /* H3/Lead: Заголовки окон */
+  --fs-xl: 2.4rem;      /* H2: главные заголовки экранов */
+
+  /* ================= SPACING ================= */
+  --space-xs: 0.4rem; /* Tiny: зазоры внутри элементов */
+  --space-sm: 0.8rem; /* Small: между мелкими элементами */
+  --space-md: 1.6rem; /* Самый частый отступ Medium: между логическими группами */
+  --space-lg: 2.4rem; /* 24px */
+  --space-xl: 3.2rem; /* Large: внешние отступы контейнеров */
+  /* ================= RADIUS ================= */
+  --br-sm: 0.4rem;    /*(для маленьких кнопок/инпутов)*/
+  --br-md: 1.2rem;    /*(для основных карточек, как на макете)*/
+
+  /* ================= SHADOW ================= */
+  --shd-low: 0 2px 8px rgba(0,0,0,0.2);/*(едва заметная)*/
+  --shd-high: 0 8px 20px rgba(0,0,0,0.3);/*(для акцента)*/
+
+  /* ================= PALETTE ================= */
+  /* ---------------- ОСНОВНОЙ ЦВЕТ primary ----------------   */
+  --primary-100: #d0e4e3;/* Для мягких подсветок фоны карточек, hover */
+  --primary-500: #037971;/* Главный цвет: лого, активные элементы */
+  --primary-700: #025d57;/* Темнее для наведения (hover) */
+
+  /* ---------------- АКЦЕНТ / КНОПКИ  ---------------- */
+  --accent-100: #f9e8d4;/* легкий фон/hover на карточках */
+  --accent-500: #d48444;/* акцентные кнопки, badges, promo */
+  --accent-700: #b56b33;/* hover/active для акцентов */
+
+  /* gray scale */
+  --gray-50:  #faf9f5;/* фоны блоков и секций */
+  --gray-100: #f0ede4;/* светлый фон карточек */
+  --gray-300: #d8d3c3;/* бордеры, разделители */
+  --gray-500: #7d7d85;/* второстепенный текст */
+  --gray-700: #4a4a52;/* Читабельный текст */
+
+  /* ================= SEMANTIC TOKENS ================= */
+  --color-bg: var(--gray-50);
+  --color-surface: #ffffff;
+  --color-border: var(--gray-300);
+
+  --color-text-main: #303036;
+  --color-text-muted: var(--gray-500);
+
+  --color-primary: var(--primary-500);
+  --color-primary-hover: var(--primary-700);
+
+  --color-accent: var(--accent-500);
+  --color-accent-hover: var(--accent-700);
+
+  --color-success: #63a088;
+  --color-error:   #b14a4a;
+  --color-warning: #c9a54d;
+  --color-info:    #5b7b7a;
+
+  /* ================= MOTION ================= */
+  --t-fast: 0.2s ease;
+}
+
 /*HEADER*/
-.main-header{
-  width: 100%;
-  background-color: var(--color-gray-100);
-  border-bottom: 1px solid var(--color-gray-300);
-  position: fixed;
-  top: 0;
-  left: 0;
+.main-header {
+  /* position: fixed; */
+  position: sticky;
+  inset: 0 0 auto 0;
   z-index: 9;
+  background-color: var(--gray-100);
+  border-bottom: 1px solid var(--gray-300);
 }
 
 .header-container {
-    max-width: 1440px; 
-    margin: 0 auto;    
-    padding: var(--u) calc(var(--u) * 2); /* Гибкие отступы от краев */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+  max-width: 90rem; /* ≈1440px */
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo-box {
-    display: flex;
-    color: var(--color-primary-500);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: flex;
+  display: flex;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--color-primary);
 }
 
 .logo-box strong {
-  display: inline-block;
-  transition: transform 0.3s ease;
-
+  transition: transform var(--t-fast);
+  
 }
-.logo-box:hover strong{
-  transform: translateY(-3px);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+.logo-box:hover strong {
+  transform: translateY(-2px);
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .main-nav ul {
-    display: flex;
-    gap: calc(var(--u) * 2); /* Расстояние между пунктами меню */
+  display: flex;
+  gap: var(--space-md);
 }
 
 .main-nav a {
-    font-size: var(--fs-base); /* Или используй --u */
-    font-weight: 500;
-    color: var(--color-text);
-    transition: color 0.3s;
+  font-size: var(--fs-base);/*возможно проблема с моим пониманием размеров но 16px тут уместно а вот в тексте восвем нет*/
+  font-weight: 500;
+  color: var(--color-text-main);
+  transition: color var(--t-fast);
 }
 
 .main-nav a:hover {
-    color: var(--color-primary-500);
+  color: var(--color-primary);
 }
 
-.btn-main{
-    color: var(--color-text);
-    background-color: var(--color-secondary-500);
-    font-weight: 500;
-    display: inline-flex;
-    border-radius:var(--br-md);
-    padding: calc(var(--u) / 2) var(--u);
-    border: 1px solid var(--color-secondary-700);
-    box-shadow: var(--shd-low);
-    transition: transform 0.3s, box-shadow 0.3s;
-    /* text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); переделать */
-  }
+.btn-header {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-.btn-main:hover {
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--fs-small);
+  font-weight: 500;
+
+  color: var(--color-text-main);
+  background-color: var(--color-accent);
+  border-radius: var(--br-md);
+  border: 1px solid var(--color-accent-hover);
+
+  box-shadow: var(--shd-low);
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
+}
+
+.btn-header:hover {
   transform: translateY(-2px);
   box-shadow: var(--shd-high);
 }
 
-.btn-main:active{
+.btn-header:active{
     transform: translateY(0px);
   box-shadow: var(--shd-low);
 }
 /*BODY*/
 
 body {
-    margin: 0;
-    /* display: flex; */
-    /* justify-content: center; */
-     /* Центр по горизонтали */
-    /* align-items: center;     */
-    /* Центр по вертикали */
-    min-height: 100vh;       /* Высота во весь экран */
-    background-color: var(--color-gray-50);
-    font-family: var(--main-font);
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-main);
+  font-size: var(--fs-base);
+  line-height: 1.5;
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
 }
-
-/* .main_window > div {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease; 
-}
-
-.main_window .active {
-    display: block;
-    opacity: 1;     
-} */
-
 
 .content {
-  padding: calc(var(--u) / 2) calc(var(--u)*2);
+  padding: var(--space-md) var(--space-lg);
 }
 
 .aside{
-  /* width: clamp(250px, 20vw, 400px); */
+  /* width: min(100%, 18rem); */
+}
+/* ================= AUTH OVERLAY ================= */
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+
+  transition: opacity var(--t-fast);
 }
 
-.auth-overlay{
-    position: fixed;
-    inset: 0;
-    z-index: 10; /* Чтобы было под хедером (1001) */
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    
-    /* Флекс настройки */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    /* Плавное появление */
-    transition: opacity 0.3s ease;
-  
-}
-
-.auth-card{
+/* ================= AUTH CARD ================= */
+.auth-card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  background: white;
-  padding: calc(var(--u) * 2);
-  /* align-self: center;  */
-  /* min-width: 320px;
-  max-width: 400px;  */
-  /* width: 100%; */
+
+  width: min(100%, 24rem);
+  padding: var(--space-lg);
+
+  width: 100%;
+  max-width: 420px;   /* человеческий максимум */
+  min-width: 320px;
+
+  background-color: var(--color-surface, #fff);
   border-radius: var(--br-md);
   box-shadow: var(--shd-high);
-  /* margin-top: clamp(50px, 5.0vw, 100px); */
-  /*костыль окно нырнуло под хедер*/
-  
-  /* padding: var(--u) calc(var(--u) * 2); костыль окно */
+
+  transform: translateY(0);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.auth-content{
+/* ================= EXIT BUTTON ================= */
+.btn-exit {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+
+  width: 2rem;
+  height: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.25rem;
+  font-weight: 700;
+
+  color: var(--color-text-muted);
+  background-color: var(--gray-100);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--br-sm);
+
+  cursor: pointer;
+  transition: background-color var(--t-fast), color var(--t-fast);
+}
+
+.btn-exit:hover {
+  background-color: var(--color-error);
+  color: #fff;
+}
+
+/* ================= CONTENT / FORMS ================= */
+.auth-content {
   display: grid;
-  grid-template-columns: 1fr;
 }
 
-.auth-form-login{
+.auth-form-login,
+.auth-form-reg {
   grid-area: 1 / 1;
-  transition: opacity 0.3s ease;
-}
-
-.auth-form-reg{
-  grid-area: 1 / 1;
-  transition: opacity 0.3s ease;
-}
-
-.auth-tabs > ul{
-  list-style: none;
-   display: flex;
-  flex-direction: row; 
-  width: 100%;
-  justify-content: space-between;
+  transition: opacity var(--t-fast);
 }
 
 .auth-card form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--u); /* Расстояние между инпутами */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ================= LABEL / INPUT ================= */
+.auth-card label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
 }
 
 .auth-card input {
-  border: 1px solid var(--color-gray-300);
-  border-radius: var(--br-sm);
-  background-color: var(--color-gray-50);
-  padding: calc(var(--u) / 1.5) var(--u);
-  font-size: var(--fs-small);
-  color: var(--color-text);
-  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
 
-    /* width: 100%; Растянется на всю ширину формы */
-    /* min-width: calc(var(--u) * 15); Вот тут мы задаем минимальную ширину всей карточки через инпут */
-    /* padding: calc(var(--u) / 2); */
+  border-radius: var(--br-sm);
+  border: 1px solid var(--gray-300);
+  background-color: var(--gray-50);
+
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
 }
 
 .auth-card input:focus {
-    outline: none;
-    border-color: var(--color-primary-500);
-    box-shadow: 0 0 0 3px var(--color-primary-100);
-
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--primary-100);
 }
 
-.auth-card input label {
-  font-weight: 500;
-    color: var(--color-gray-700);
-    margin-bottom: calc(var(--u) / -2);
-}
-
+/* ================= TABS ================= */
 .auth-tabs ul {
-    border-bottom: 2px solid var(--color-gray-100);
-    margin-bottom: var(--u);
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--gray-100);
 }
 
 .auth-tabs button {
-    background: none;
-    outline: none;
-    border: none;
-    padding: var(--u);
-    cursor: pointer;
-    font-size: var(--fs-button);
-    color: var(--color-gray-500);
-    transition: color var(--t-fast);
-    position: relative;
-    
+  padding: var(--space-sm);
+  font-size: 0.9rem;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  color: var(--color-text-muted);
+  transition: color var(--t-fast);
+  position: relative;
 }
 
-/* Линия под активной вкладкой (потом добавим класс через JS) */
+.auth-tabs button:not(.is-active):hover {
+  color: var(--color-primary);
+}
+
 .auth-tabs button.is-active {
-    color: var(--color-primary-500);
-    font-weight: 700;
+  color: var(--color-primary);
+  font-weight: 700;
 }
 
 .auth-tabs button.is-active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-primary-500);
-}
-.auth-spacer{
-  flex-grow: 1;
+  content: '';
+  position: absolute;
+  inset: auto 0 -1px 0;
+  height: 2px;
+  background-color: var(--color-primary);
 }
 
+/* ================= SUBMIT BUTTON ================= */
+.btn-submit {
+  margin-top: var(--space-sm);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.6rem 1rem;
+  width: 100%;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  color: var(--color-text-main);
+  background-color: var(--color-accent);
+
+  border-radius: var(--br-md);
+  border: 1px solid var(--color-accent-hover);
+
+  box-shadow: var(--shd-low);
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shd-high);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+  box-shadow: var(--shd-low);
+}
+
+/* ================= VISIBILITY ================= */
 .is-hiden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-     /* Или используй opacity: 0; pointer-events: none; для анимации */
 }
 
 .is-none {

@@ -33,10 +33,10 @@
             </ul>
         </nav>
 
-        <div class="auth-box">
-            <a href="#login" class="btn-main">Sign In</a>
-            .avatar
-        </div>
+    <div class="auth-box">
+    <a href="#login" class="btn-header">Sign In</a>
+    <div class="avatar"></div>
+    </div>
 
     </div>
 </header>
