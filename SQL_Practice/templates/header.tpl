@@ -34,7 +34,7 @@
         </nav>
 
     <div class="auth-box">
-    <a href="#login" class="btn-header">Sign In</a>
+    <a href="#login" class="btn btn-header">Sign In</a>
     <div class="avatar"></div>
     </div>
 

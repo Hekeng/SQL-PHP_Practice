@@ -11,11 +11,10 @@ body {
 	box-sizing: border-box;
 	font-family: var(--main-font);
 	border: none;
-	/* display: inline-block;  */
 	width: 100%;
 	
 }
-/* позволяет придердиваться внешних границ*/
+
 *, *::before, *::after { 
 	box-sizing: border-box; 
 	margin: 0;
@@ -36,14 +35,17 @@ ul, ul, li {
 
 button {
 	padding: 0;
-	outline: 1px solid var(--gray-300);
 	border: none; 
 }
 
 input {
 	padding: 0;
-	outline: 1px solid var(--gray-300);
+	/* outline: 1px solid var(--gray-300); */
 	border: none; 
+	width: 100%;           /* Теперь он стремится занять место, которое дали */
+    display: block;        /* Убираем лишние зазоры inline-элемента */
+    min-width: 0;
+
 }
 
 /* span, p, label {

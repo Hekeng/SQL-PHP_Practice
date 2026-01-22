@@ -1,6 +1,6 @@
 <?php 
 
-	add_js('script');
+	// add_js('script');
 	
 	
 ?>

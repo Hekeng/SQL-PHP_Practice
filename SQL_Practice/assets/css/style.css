@@ -8,7 +8,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
 
 html {
-  font-size: clamp(62.5%, 0.625rem + 0.5vw, 75%);
+  font-size: clamp(62.5%, 0.625rem + 0.2vw, 150%);
 }
 
 :root {
@@ -56,7 +56,7 @@ html {
 
   /* ================= SEMANTIC TOKENS ================= */
   --color-bg: var(--gray-50);
-  --color-surface: #ffffff;
+  --color-surface: #fefefe;
   --color-border: var(--gray-300);
 
   --color-text-main: #303036;
@@ -76,6 +76,33 @@ html {
   /* ================= MOTION ================= */
   --t-fast: 0.2s ease;
 }
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--fs-button);
+  font-weight: 500;
+
+  color: var(--color-surface);
+  background-color: var(--color-accent);
+  border-radius: var(--br-md);
+ 
+  box-shadow: var(--shd-low);
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shd-high);
+  background-color: var(--color-accent-hover);
+}
+
+.btn:active{
+    transform: translateY(0);
+  box-shadow: var(--shd-low);
+}
 
 /*HEADER*/
 .main-header {
@@ -87,6 +114,7 @@ html {
   border-bottom: 1px solid var(--gray-300);
 }
 
+
 .header-container {
   max-width: 90rem; /* ≈1440px */
   margin: 0 auto;
@@ -94,6 +122,8 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
 }
 
 .logo-box {
@@ -114,9 +144,11 @@ html {
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.main-nav ul {
+.nav-list {
   display: flex;
-  gap: var(--space-md);
+  gap: var(--space-lg);
+  flex-wrap: wrap; /* Если ссылок много, они выстроятся в 2 ряда вместо наплыва */
+  justify-content: center;
 }
 
 .main-nav a {
@@ -130,34 +162,16 @@ html {
   color: var(--color-primary);
 }
 
-.btn-header {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
+ .btn-header {
   padding: var(--space-xs) var(--space-md);
-  font-size: var(--fs-small);
-  font-weight: 500;
-
-  color: var(--color-text-main);
-  background-color: var(--color-accent);
-  border-radius: var(--br-md);
-  border: 1px solid var(--color-accent-hover);
-
-  box-shadow: var(--shd-low);
-  transition: transform var(--t-fast), box-shadow var(--t-fast);
 }
 
-.btn-header:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shd-high);
-}
-
-.btn-header:active{
-    transform: translateY(0px);
-  box-shadow: var(--shd-low);
-}
 /*BODY*/
+
+.nav-link, .logo-box, .btn-header {
+  white-space: nowrap; 
+}
+
 
 body {
   display: flex;
@@ -201,35 +215,44 @@ body {
   flex-direction: column;
 
   /* width: min(100%, 24rem); */
-  padding: var(--space-lg);
-
-  width: 100%;
-  max-width: 420px;   /* человеческий максимум */
-  /* min-width: 320px; */
+  padding: var(--space-lg);/*слабое место сильно раздувает карточку*/
+  width: fit-content;
+  /* width: 100%; */
+  /* max-width: calc(100% - 20px);*/
+  min-width: 18rem;
+  /* width: clamp(18rem, 40vw, 32rem); */
 
   background-color: var(--color-bg);
   border-radius: var(--br-md);
   box-shadow: var(--shd-high);
 
+  border: 1px solid rgba(0,0,0,0.05);
+
   transform: translateY(0);
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  animation: float 4s ease-in-out infinite;
 }
 
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  33% { transform: translate(3px, -4px); }
+  66% { transform: translate(-3px, -2px); }
+  100% { transform: translate(0, 0); }
+}
 /* ================= EXIT BUTTON ================= */
 .btn-exit {
   position: absolute;
   top: var(--space-sm);
   right: var(--space-sm);
-
-  width: 2rem;
-  height: 2rem;
+line-height: 1;
+  width: 1.6rem;
+  height: 1.6rem;
+  z-index: 8;
 
   display: flex;
   align-items: center;
   justify-content: center;
-
-  font-size: var(--fs-base);
-  font-weight: 700;
 
   color: var(--color-text-muted);
   background-color: var(--gray-100);
@@ -238,17 +261,31 @@ body {
 
   cursor: pointer;
   transition: background-color var(--t-fast), color var(--t-fast);
+
+
+
+  
 }
 
 .btn-exit:hover {
-  background-color: var(--color-error);
-  color: #fff;
-}
 
+  background-color: var(--color-error);
+  color: var(--color-surface);
+}
+.btn-exit svg {
+    width: 80%;  /* Крестик будет занимать 60% от размера кнопки */
+    height: 80%;
+    display: block; /* Убираем лишние зазоры */
+}
+.btn-exit:hover svg path {
+    stroke-width: 3; /* Сделаем крестик жирнее при наведении */
+    transition: stroke-width 0.2s ease;
+}
 /* ================= CONTENT / FORMS ================= */
 .auth-content {
   display: grid;
   grid-template-columns: 1fr;
+  /* width: 100%; */
 }
 
 .auth-form-login{
@@ -267,26 +304,48 @@ body {
   gap: var(--space-sm);
 }
 
+.auth-spacer {
+  flex-grow: 1; /* Забирает всё свободное пространство */
+  min-height: var(--space-md);
+}
+
 /* ================= LABEL / INPUT ================= */
 .auth-card label {
-  font-size: var(--fs-base);
+  font-size: var(--fs-button);
   font-weight: 500;
   color: var(--color-text-muted);
+  margin-bottom: calc(var(--space-xs) * -1);
 }
 
 .auth-card input {
+  width: 10rem;
+  min-width: 100%;
+  /* width: 10rem;             Занимать всё место внутри карточки */
+   /*max-width: 100%;         /*Не вылезать за рамки ни при каких условиях*/
+  /* min-width: 0;
+  display: block;          /* Чтобы не было inline-глюков */
+  box-sizing: border-box;
+  display: block;
+  /* max-width: 100%; */
   padding: var(--space-xs) var(--space-sm);
   font-size: var(--fs-base);
 
   border-radius: var(--br-sm);
-  border: 1px solid var(--gray-300);
-  background-color: var(--gray-50);
+  border: 1px solid var(--gray-500);
+  background-color: var(--gray-100);
+  transition: all var(--t-fast) ease;
 
-  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+  border-color: var(--gray-300);
+}
+
+.auth-card input:hover {
+  /* background-color: var(--gray-50); Инпут как бы "подсвечивается" изнутри */
+  border-color: var(--gray-500);    /* Граница становится чуть строже */
 }
 
 .auth-card input:focus {
   outline: none;
+  background-color:var(--color-surface);
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px var(--primary-100);
 }
@@ -296,9 +355,11 @@ body {
   display: flex;
   flex-direction: row; 
   justify-content: space-between;
-  width: 100%;
+  width: 110%;
   margin-bottom: var(--space-md);
   border-bottom: 1px solid var(--gray-100);
+  padding-right: 1rem; /* Резервируем место под крестик, чтобы табы под него не заплывали */
+  box-sizing: border-box;
 }
 
 .auth-tabs button {
@@ -333,38 +394,9 @@ body {
 
 /* ================= SUBMIT BUTTON ================= */
 .btn-submit {
-  margin-top: var(--space-sm);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 0.6rem 1rem;
-  width: 100%;
-
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-transform: uppercase;
-
-  color: var(--color-text-main);
-  background-color: var(--color-accent);
-
-  border-radius: var(--br-md);
-  border: 1px solid var(--color-accent-hover);
-
-  box-shadow: var(--shd-low);
-  transition: transform var(--t-fast), box-shadow var(--t-fast);
+  margin-top: var(--space-lg);
 }
 
-.btn-submit:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shd-high);
-}
-
-.btn-submit:active {
-  transform: translateY(0);
-  box-shadow: var(--shd-low);
-}
 
 /* ================= VISIBILITY ================= */
 .is-hiden {
@@ -374,7 +406,7 @@ body {
 }
 
 .is-none {
-  display: none;
+  display: none !important;
 }
 
 

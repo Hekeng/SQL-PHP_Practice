@@ -23,28 +23,31 @@ require_once TEMPLATES_PATH . '/header.tpl';
 			</div>
 		</div>
 		
+<!-- is-none -->
 
-
-		<div class="auth-overlay ">
+		<div class="auth-overlay "> 
 			<div class="auth-card">
-				<button type="button" class="btn-exit">&times;</button>
+				<button type="button" class="btn-exit">
+					<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</button>
 				<div class="auth-tabs">
 					<ul>
-						<li><button class="is-active" type="button">authorization</button></li>
-						<li><button type="button">registration</button></li>
+						<li><button class="is-active auth_tab" data-target="login" type="button">Authorization</button></li>
+						<li><button class="auth_tab" data-target="reg" type="button ">Registration</button></li>
 					</ul>
 				</div>
 				
 				<div class="auth-content">
-					<form class="auth-form-login" id="auth-form-login" name="auth-form-login" action="" method="post">
+					<form class="auth-form-login " id="auth-form-login" name="auth-form-login" action="" method="post">
 						
 						<label for="user_login">Login</label>
 						<input 
 							type="text"
 							name="user_login"
 							id="user_login"
-							placeholder="Login"
-							autofocus>
+							placeholder="Login" autofocus>
 						<label for="user_pas">Password</label>
 						<input 
 							type="password"
@@ -58,7 +61,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 							type="text"
 							placeholder="******"> -->
 						<!-- <br> -->
-						<button class="btn-submit" type="submit">send</button>			
+						<button class="btn btn-submit" type="submit">Send</button>			
 					</form>
 
 					<form class="auth-form-reg is-hiden" name="reg_window" id="reg_window" action="" method="post">
@@ -68,8 +71,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 							type="text"
 							name="new_user_login"
 							id="new_user_login"
-							placeholder="Login"
-							autofocus>
+							placeholder="Login" autofocus>
 						<label for="new_user_pas">Password</label>
 						<input 
 							type="password"
@@ -83,7 +85,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 							id="new_user_pas_rep"
 							placeholder="******">
 						<!-- <br> -->
-						<button class="btn-submit" type="submit">registration user</button>
+						<button class="btn btn-submit" type="submit">Registration user</button>
 					</form>
 
 				</div>
