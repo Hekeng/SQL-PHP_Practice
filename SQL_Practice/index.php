@@ -40,10 +40,10 @@ require_once TEMPLATES_PATH . '/header.tpl';
 				<div class="auth-tabs">
 					<ul>
 						<li>
-							<button class="auth-tab" 
+							<button class="auth-tab is-active" 
 									data-action="switch" 
-									data-target="auth-overlay" 
-									data-view="login"  
+									data-target="reg-overlay" 
+									data-panel="auth-tab"
 									type="button">
 								Authorization
 							</button>
@@ -51,7 +51,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 							<button class="auth-tab" 
 									data-action="switch" 
 									data-target="auth-overlay" 
-									data-view="register" 
+									data-panel="reg-tab" 
 									type="button">
 								Registration
 							</button>

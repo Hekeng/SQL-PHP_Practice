@@ -32,38 +32,83 @@
  
 // let auth_tabs = document.getElementById('auth_tab');
 
-let user = { name: "Олег", age: 30 };
-let perem = user["name"];
-let perem1 = user["age"];
-console.log(perem);
+// let user = { name: "Олег", age: 30 };
+// let perem = user["name"];
+// let perem1 = user["age"];
+// console.log(perem);
 
-let {rname, age} = user;
+// let {rname, age} = user;
 
-console.log(name);
-console.log(age);
+// console.log(name);
+// console.log(age);
 
-let {name: userName, age: userAge} = user;
+// let {name: userName, age: userAge} = user;
 
-console.log(userName);
-console.log(userAge);
+// console.log(userName);
+// console.log(userAge);
 
-let {gender = "male"} = user;
-console.log(user.gender);
-console.log(gender);
+// let {gender = "male"} = user;
+// console.log(user.gender);
+// console.log(gender);
 
 
 //--------------------------------------------------------------
-// const buttons = document.querySelectorAll("[data-action]");
-// const windows = document.querySelectorAll("[data-panel]");
+var panelActions = {
+    open: openPanel,
+    close: closePanel,
+	switch: switchPanel
+};
 
-// buttons.forEach(button => {
-   
-//    button.addEventListener('click', event => {
-//         print_button(event);
-//         rename_data_set (event);
-//    })
+var actionButtons = document.querySelectorAll("[data-action]");
+var panels = document.querySelectorAll("[data-panel]");
+
+actionButtons.forEach(function (button) {
+    button.addEventListener("click", handleActionClick);
+});
+
+function handleActionClick(e) {
+    var action = e.currentTarget.dataset.action;
+    var target = e.currentTarget.dataset.target;
+
+    if (panelActions[action]) {
+        panelActions[action](target, e);
+    }
+}
+
+function openPanel(target, e) {
+	for (var i = 0; i < panels.length; i++) {
+		var panel = panels[i];
+		if (panel.dataset.panel === target) {
+			panel.classList.remove("is-none");
+		}
+	}
+}
+
+function closePanel(target, e) {
+	panels.forEach(function (panel) {
+		if (panel.dataset.panel === target) {
+			     panel.classList.add("is-none");
+        
+		}
+	});
 	
-// });
+}
+
+function switchPanel(target, e) {
+
+	for (let i = 0; i < actionButtons.length; index++) {
+		var button  = actionButtons[i];
+		if (data-panel === data-target) {
+			
+		}
+		if (panel.dataset.panel === target) {
+			panel.classList.remove("is-none");
+		}
+		
+	}
+	
+}
+
 
 // const actions = {
 //   open: ({ target }) => openPanel(target),

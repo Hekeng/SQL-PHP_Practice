@@ -364,7 +364,8 @@ line-height: 1;
 
 .auth-tabs button {
   padding: var(--space-sm);
-  font-size: 0.9rem;
+  font-size: var(--fs-button);
+  font-weight: 500;
 
   background: none;
   border: none;
