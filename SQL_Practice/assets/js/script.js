@@ -1,6 +1,21 @@
+// | Атрибут       | Что хранит        |                       Пример                            |
 
-var perem = "hallo world!"
-console.log(perem);
+// | `data-action` | Что делает элемент                       `open`, `close`, `toggle`, `switch`|
+// | `data-target` | На что влияет/кому действие              `auth-overlay`, `menu-main`        |
+// | `data-panel`  | Идентификатор панели/модалки/контейнера  `auth`, `profile`, `settings`      |
+// | `data-view`   | Внутреннее состояние панели или вкладка  `login`, `register`, `details`     |
+// | `data-state`  | Состояние элемента, можно динам. менять  `active`, `disabled`, `expanded`   |
+// | `data-label`  | Человеческое имя/логическая идентификация `main-nav`, `submit-button`       |
+// | `data-index`  | Позиция в списке, массиве, слайдере       `0`, `1`, `2`                     |
+// | `data-id`     | Кастомный идентификатор объекта (не DOM id)'user_1234`                      |
+// | `data-type`   | Тип объекта/контента                       `modal`, `alert`, `tab`          |
+
+//console.log(typeof act); // скажет "string", "object" и т.д.
+//console.dir(act);        // для объектов / массивов покажет структуру
+ 
+
+// var perem = "hallo world!"
+// console.log(perem);
 
 // // Поиск одного элемента
 // var loginForm = document.querySelector('#form-login');
@@ -16,17 +31,101 @@ console.log(perem);
 // });
  
 // let auth_tabs = document.getElementById('auth_tab');
-let auth_tabs = document.querySelectorAll('ul>li>button')
-auth_tabs.forEach(button => {
-   
-   button.addEventListener('click', print_button);
-	
-});
 
-function print_button (event) {
+let user = { name: "Олег", age: 30 };
+let perem = user["name"];
+let perem1 = user["age"];
+console.log(perem);
+
+let {rname, age} = user;
+
+console.log(name);
+console.log(age);
+
+let {name: userName, age: userAge} = user;
+
+console.log(userName);
+console.log(userAge);
+
+let {gender = "male"} = user;
+console.log(user.gender);
+console.log(gender);
+
+
+//--------------------------------------------------------------
+// const buttons = document.querySelectorAll("[data-action]");
+// const windows = document.querySelectorAll("[data-panel]");
+
+// buttons.forEach(button => {
    
-        const target = event.currentTarget.dataset.target; 
+//    button.addEventListener('click', event => {
+//         print_button(event);
+//         rename_data_set (event);
+//    })
+	
+// });
+
+// const actions = {
+//   open: ({ target }) => openPanel(target),
+//   close: ({ target }) => closePanel(target),
+//   switch: ({ target, view }) => switchView(target, view)
+// };
+//--------------------------------------------------------------
+// let proba = actions[actionName];
+// proba(target);
+
+// buttons.forEach(button => {
+   
+//    button.addEventListener('click', event => {
+//         print_button(event);
+//         rename_data_set (event);
+//    })
+	
+// });
+
+// function print_button (event) {
+
+//         const action = event.currentTarget.dataset.action;
+//         const target = event.currentTarget.dataset.target; 
         
-        console.log('Кнопка нажата: ' + target);
-}
-// console.log(auth_tabs);
+//         console.log('Кнопка нажата: ' + target + ' ' + action);
+// }
+
+// function rename_data_set (event) {
+//         let act = event.currentTarget.dataset.action;
+//         let tar = event.currentTarget.dataset.target;
+//         act = "new_action";
+//         tar = "new_target";
+
+//         event.currentTarget.dataset.action = act;
+//         event.currentTarget.dataset.target = tar;
+// }
+
+// const actions = {
+//   open: ({ target }) => openPanel(target),
+//   close: ({ target }) => closePanel(target),
+//   switch: ({ target, view }) => switchView(target, view)
+// };
+
+// document.addEventListener('click', e => {
+//   const el = e.target.closest('[data-action]');
+//   if (!el) return;
+
+//   const action = el.dataset.action;
+//   actions[action]?.(el.dataset);
+// });
+
+// function openWindow(panelName) {
+//     // Ищем окно по data-panel
+//     var panel = document.querySelector('[data-panel="' + panelName + '"]');
+//     if (panel !== null) {
+//         panel.style.display = "block";
+//     }
+// }
+
+// function closeWindow(panelName) {
+//     var panel = document.querySelector('[data-panel="' + panelName + '"]');
+//     if (panel !== null) {
+//         panel.style.display = "none";
+//     }
+// }

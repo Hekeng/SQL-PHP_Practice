@@ -17,7 +17,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 
 	<div class="main_window ">
 
-		<div class="content active">
+		<div class="content">
 			<div class="some_content ">
 				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod dolor eos distinctio. Fugiat dolorum distinctio inventore sequi ratione? Officia soluta eaque, rem nostrum suscipit velit, unde porro animi in molestiae, iste minus vitae impedit eius vel tempora ducimus accusamus quam minima nulla architecto temporibus cupiditate ipsa tenetur. Sequi ipsum esse, maiores consectetur corporis animi excepturi nulla voluptates nisi, fuga perspiciatis repudiandae officia rem, quisquam placeat qui. Laudantium, doloribus tempora odit consequatur earum hic. Pariatur earum expedita harum autem sunt cupiditate accusantium? Eaque praesentium ratione officia cupiditate vitae facilis velit cum adipisci mollitia! Quasi suscipit pariatur nihil ipsum atque quis tempore.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod dolor eos distinctio. Fugiat dolorum distinctio inventore sequi ratione? Officia soluta eaque, rem nostrum suscipit velit, unde porro animi in molestiae, iste minus vitae impedit eius vel tempora ducimus accusamus quam minima nulla architecto temporibus cupiditate ipsa tenetur. Sequi ipsum esse, maiores consectetur corporis animi excepturi nulla voluptates nisi, fuga perspiciatis repudiandae officia rem, quisquam placeat qui. Laudantium, doloribus tempora odit consequatur earum hic. Pariatur earum expedita harum autem sunt cupiditate accusantium? Eaque praesentium ratione officia cupiditate vitae facilis velit cum adipisci mollitia! Quasi suscipit pariatur nihil ipsum atque quis tempore.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod dolor eos distinctio. Fugiat dolorum distinctio inventore sequi ratione? Officia soluta eaque, rem nostrum suscipit velit, unde porro animi in molestiae, iste minus vitae impedit eius vel tempora ducimus accusamus quam minima nulla architecto temporibus cupiditate ipsa tenetur. Sequi ipsum esse, maiores consectetur corporis animi excepturi nulla voluptates nisi, fuga perspiciatis repudiandae officia rem, quisquam placeat qui. Laudantium, doloribus tempora odit consequatur earum hic. Pariatur earum expedita harum autem sunt cupiditate accusantium? Eaque praesentium ratione officia cupiditate vitae facilis velit cum adipisci mollitia! Quasi suscipit pariatur nihil ipsum atque quis tempore.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod dolor eos distinctio. Fugiat dolorum distinctio inventore sequi ratione? Officia soluta eaque, rem nostrum suscipit velit, unde porro animi in molestiae, iste minus vitae impedit eius vel tempora ducimus accusamus quam minima nulla architecto temporibus cupiditate ipsa tenetur. Sequi ipsum esse, maiores consectetur corporis animi excepturi nulla voluptates nisi, fuga perspiciatis repudiandae officia rem, quisquam placeat qui. Laudantium, doloribus tempora odit consequatur earum hic. Pariatur earum expedita harum autem sunt cupiditate accusantium? Eaque praesentium ratione officia cupiditate vitae facilis velit cum adipisci mollitia! Quasi suscipit pariatur nihil ipsum atque quis tempore.</p>
 			</div>
@@ -25,22 +25,42 @@ require_once TEMPLATES_PATH . '/header.tpl';
 		
 <!-- is-none -->
 
-		<div class="auth-overlay "> 
+		<div class="auth-overlay is-none" 
+			 data-panel="auth-overlay"> 
 			<div class="auth-card">
-				<button type="button" class="btn-exit">
+				<button 
+					type="button" 
+					class="btn-exit" 
+					data-action="close"
+					data-target="auth-overlay">
 					<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 					</svg>
 				</button>
 				<div class="auth-tabs">
 					<ul>
-						<li><button class="is-active auth_tab" data-target="login" type="button">Authorization</button></li>
-						<li><button class="auth_tab" data-target="reg" type="button ">Registration</button></li>
+						<li>
+							<button class="auth-tab" 
+									data-action="switch" 
+									data-target="auth-overlay" 
+									data-view="login"  
+									type="button">
+								Authorization
+							</button>
+						<li>
+							<button class="auth-tab" 
+									data-action="switch" 
+									data-target="auth-overlay" 
+									data-view="register" 
+									type="button">
+								Registration
+							</button>
+						</li>
 					</ul>
 				</div>
 				
 				<div class="auth-content">
-					<form class="auth-form-login " id="auth-form-login" name="auth-form-login" action="" method="post">
+					<form class="auth-form-login " id="auth_form_login" name="auth_form_login" action="" method="post">
 						
 						<label for="user_login">Login</label>
 						<input 
@@ -92,7 +112,9 @@ require_once TEMPLATES_PATH . '/header.tpl';
 			</div>
 		</div>
 	
-		<div class="user_window is-none" id="user_panel">
+		<div class="user_window is-none" 
+			data-panel="user_window"
+			id="user_panel">
 			<h2>Welcome, <span class="user_name"></span></h2>
 			<div class="personal_data">
 				<h3>Personal data</h3>

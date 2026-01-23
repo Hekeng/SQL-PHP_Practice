@@ -19,25 +19,32 @@
 <body>
 
 <header class="main-header">
-    <div class="header-container">
-        
-        <a href="/" class="logo-box">
-            <strong>Alt-Inflation</strong>
-        </a>
+  <div class="header-container">
+    
+    <a href="/" class="logo-box">
+      <strong>Alt-Inflation</strong>
+    </a>
 
-        <nav class="main-nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
-                <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
-                <li class="nav-item"><a href="#responsibility" class="nav-link">Responsibility</a></li>
-            </ul>
-        </nav>
+    <nav class="main-nav">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+        <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
+        <li class="nav-item"><a href="#responsibility" class="nav-link">Responsibility</a></li>
+      </ul>
+    </nav>
 
     <div class="auth-box">
-    <a href="#login" class="btn btn-header">Sign In</a>
-    <div class="avatar"></div>
+      <!-- кнопка открытия модалки -->
+      <a href="#login" 
+         class="btn btn-header" 
+         data-action="open" 
+         data-target="auth-overlay">
+         Sign In
+      </a>
+
+      <div class="avatar"></div>
     </div>
 
-    </div>
+  </div>
 </header>
 
