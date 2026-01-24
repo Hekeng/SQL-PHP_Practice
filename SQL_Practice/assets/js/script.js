@@ -14,14 +14,14 @@
 //console.dir(act);        // для объектов / массивов покажет структуру
  
 
-// var perem = "hallo world!"
+// let perem = "hallo world!"
 // console.log(perem);
 
 // // Поиск одного элемента
-// var loginForm = document.querySelector('#form-login');
+// let loginForm = document.querySelector('#form-login');
 
 // // Поиск группы элементов (например, всех кнопок табов)
-// var tabs = document.querySelectorAll('.tab-btn');
+// let tabs = document.querySelectorAll('.tab-btn');
 
 // element.classList.add('is-hidden');//(JS переключает рычаг, а CSS решает, как это выглядит).
 
@@ -53,61 +53,116 @@
 
 
 //--------------------------------------------------------------
-var panelActions = {
+let panelActions = {
     open: openPanel,
     close: closePanel,
 	switch: switchPanel
 };
 
-var actionButtons = document.querySelectorAll("[data-action]");
-var panels = document.querySelectorAll("[data-panel]");
+let actionButtons = document.querySelectorAll("[data-action]");
 
 actionButtons.forEach(function (button) {
     button.addEventListener("click", handleActionClick);
 });
 
 function handleActionClick(e) {
-    var action = e.currentTarget.dataset.action;
-    var target = e.currentTarget.dataset.target;
-
+    let action = e.currentTarget.dataset.action;
+    let clickedButton = e.currentTarget;
+	// let target = clickedButton.dataset.target;
     if (panelActions[action]) {
-        panelActions[action](target, e);
+        panelActions[action](clickedButton);
+		
     }
 }
 
-function openPanel(target, e) {
-	for (var i = 0; i < panels.length; i++) {
-		var panel = panels[i];
-		if (panel.dataset.panel === target) {
-			panel.classList.remove("is-none");
+function openPanel(clickedButton) {
+	let targetPanel = getPanel(clickedButton);
+	if (!targetPanel) return;
+	targetPanel.classList.remove("is-none");
+}
+
+function closePanel(clickedButton) {
+	let targetPanel = getPanel(clickedButton);
+	if (!targetPanel) return;
+	targetPanel.classList.add("is-none"); 	
+}
+
+function switchPanel(clickedButton) {
+    if (clickedButton.classList.contains("is-active")) {
+        return;
+    }
+    switchTabs(clickedButton);
+    switchPanels(clickedButton);
+}
+
+function getPanel(clickedButton) {
+    let target = clickedButton.dataset.target;
+    if (!target) return null; // Если у кнопки вообще нет цели
+    return document.querySelector('[data-panel="' + target + '"]') || null;
+}
+
+
+function switchTabs(clickedButton) {
+    let tabsContainer = clickedButton.closest('[data-panel="switch-tabs-container"]');
+	if (!tabsContainer) return;
+    let tabs = tabsContainer.querySelectorAll('[data-action="switch"]');
+    for (let i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove("is-active");
+    }
+    clickedButton.classList.add("is-active");
+}
+
+function switchPanels(clickedButton) {
+
+	let targetPanel = getPanel(clickedButton);
+	if (!targetPanel) return;
+	let container =  targetPanel.parentElement;
+	let targetFamily = container.children;
+
+	for (let i = 0; i < targetFamily.length; i++) {
+		let panel = targetFamily[i];
+		if (panel === targetPanel) { 
+				panel.classList.remove("is-hidden");
+			} else {
+				panel.classList.add("is-hidden");
 		}
 	}
+
 }
 
-function closePanel(target, e) {
-	panels.forEach(function (panel) {
-		if (panel.dataset.panel === target) {
-			     panel.classList.add("is-none");
-        
-		}
-	});
+// function switchPanel(e) {
 	
-}
+// 	let clickedButton = e.currentTarget;
+// 	let container = clickedButton.closest('[data-panel="switch-tabs-container"]');
+// 	let targetFamily = container.querySelectorAll('[data-action="switch"]');
 
-function switchPanel(target, e) {
 
-	for (let i = 0; i < actionButtons.length; index++) {
-		var button  = actionButtons[i];
-		if (data-panel === data-target) {
-			
-		}
-		if (panel.dataset.panel === target) {
-			panel.classList.remove("is-none");
-		}
-		
-	}
+// 		for (let i = 0; i < targetFamily.length; i++) {
+// 			let button  = targetFamily[i];
+// 			button.classList.remove("is-active");
+// 		}
+// 		clickedButton.classList.add("is-active");
+// 	// }
+
+// 	let target = e.currentTarget.dataset.target;
+// 	let targetPanel = document.querySelector('[data-panel="' + target + '"]');
+// 	container =  targetPanel.parentElement;
+// 	targetFamily = container.children;
+
+
+// 	for (let i = 0; i < targetFamily.length; i++) {
+// 		let panel = targetFamily[i];
+
+// 		if (panel.dataset.panel === target) {
+// 			panel.classList.remove("is-hidden");
+// 		} else{
+// 		panel.classList.add("is-hidden");
+// 		}
+// 	}
 	
-}
+// 	// e.currentTarget.classList.remove("is-hidden");
+	
+// }
 
 
 // const actions = {
@@ -162,14 +217,14 @@ function switchPanel(target, e) {
 
 // function openWindow(panelName) {
 //     // Ищем окно по data-panel
-//     var panel = document.querySelector('[data-panel="' + panelName + '"]');
+//     let panel = document.querySelector('[data-panel="' + panelName + '"]');
 //     if (panel !== null) {
 //         panel.style.display = "block";
 //     }
 // }
 
 // function closeWindow(panelName) {
-//     var panel = document.querySelector('[data-panel="' + panelName + '"]');
+//     let panel = document.querySelector('[data-panel="' + panelName + '"]');
 //     if (panel !== null) {
 //         panel.style.display = "none";
 //     }

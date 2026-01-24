@@ -19,14 +19,27 @@ require_once TEMPLATES_PATH . '/header.tpl';
 
 		<div class="content">
 			<div class="some_content ">
-				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod dolor eos distinctio. Fugiat dolorum distinctio inventore sequi ratione? Officia soluta eaque, rem nostrum suscipit velit, unde porro animi in molestiae, iste minus vitae impedit eius vel tempora ducimus accusamus quam minima nulla architecto temporibus cupiditate ipsa tenetur. Sequi ipsum esse, maiores consectetur corporis animi excepturi nulla voluptates nisi, fuga perspiciatis repudiandae officia rem, quisquam placeat qui. Laudantium, doloribus tempora odit consequatur earum hic. Pariatur earum expedita harum autem sunt cupiditate accusantium? Eaque praesentium ratione officia cupiditate vitae facilis velit cum adipisci mollitia! Quasi suscipit pariatur nihil ipsum atque quis tempore.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod dolor eos distinctio. Fugiat dolorum distinctio inventore sequi ratione? Officia soluta eaque, rem nostrum suscipit velit, unde porro animi in molestiae, iste minus vitae impedit eius vel tempora ducimus accusamus quam minima nulla architecto temporibus cupiditate ipsa tenetur. Sequi ipsum esse, maiores consectetur corporis animi excepturi nulla voluptates nisi, fuga perspiciatis repudiandae officia rem, quisquam placeat qui. Laudantium, doloribus tempora odit consequatur earum hic. Pariatur earum expedita harum autem sunt cupiditate accusantium? Eaque praesentium ratione officia cupiditate vitae facilis velit cum adipisci mollitia! Quasi suscipit pariatur nihil ipsum atque quis tempore.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod dolor eos distinctio. Fugiat dolorum distinctio inventore sequi ratione? Officia soluta eaque, rem nostrum suscipit velit, unde porro animi in molestiae, iste minus vitae impedit eius vel tempora ducimus accusamus quam minima nulla architecto temporibus cupiditate ipsa tenetur. Sequi ipsum esse, maiores consectetur corporis animi excepturi nulla voluptates nisi, fuga perspiciatis repudiandae officia rem, quisquam placeat qui. Laudantium, doloribus tempora odit consequatur earum hic. Pariatur earum expedita harum autem sunt cupiditate accusantium? Eaque praesentium ratione officia cupiditate vitae facilis velit cum adipisci mollitia! Quasi suscipit pariatur nihil ipsum atque quis tempore.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod dolor eos distinctio. Fugiat dolorum distinctio inventore sequi ratione? Officia soluta eaque, rem nostrum suscipit velit, unde porro animi in molestiae, iste minus vitae impedit eius vel tempora ducimus accusamus quam minima nulla architecto temporibus cupiditate ipsa tenetur. Sequi ipsum esse, maiores consectetur corporis animi excepturi nulla voluptates nisi, fuga perspiciatis repudiandae officia rem, quisquam placeat qui. Laudantium, doloribus tempora odit consequatur earum hic. Pariatur earum expedita harum autem sunt cupiditate accusantium? Eaque praesentium ratione officia cupiditate vitae facilis velit cum adipisci mollitia! Quasi suscipit pariatur nihil ipsum atque quis tempore.</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci non, sint rem maxime velit, quasi soluta neque dolorem maiores beatae suscipit animi, a vitae! Necessitatibus aliquam ducimus reiciendis enim ullam?
+				Aspernatur ipsum eveniet earum asperiores, nam ratione numquam dignissimos, fuga in ullam sequi voluptas neque repudiandae ea nihil suscipit cupiditate beatae reiciendis eos. Deserunt officia a quibusdam non laboriosam porro.
+				Placeat, dicta! Quia et ad perspiciatis incidunt iure, laborum laboriosam, atque ullam culpa, dolore aperiam odit ab autem nemo qui id soluta vero non praesentium expedita perferendis? Placeat, natus similique.
+				Optio distinctio quam doloremque veritatis. Delectus, labore quos! Modi assumenda impedit, neque necessitatibus nulla natus error dolores atque a explicabo harum molestiae tenetur ab vel iste beatae. Eveniet, cupiditate laboriosam.
+				Soluta, voluptates repudiandae! Rerum reprehenderit sunt cupiditate doloribus architecto velit temporibus harum excepturi. Repellat assumenda quod voluptatum, nulla iusto quos amet omnis officiis facere laboriosam deserunt vero! Et, atque voluptatem.
+				Delectus mollitia commodi perferendis non repudiandae, suscipit deserunt reiciendis! Omnis laborum veniam necessitatibus provident a ut qui nesciunt expedita molestiae enim, recusandae harum accusamus at alias iusto iure distinctio cumque!
+				Ad doloribus doloremque, quia in veritatis est dignissimos magnam cumque iste totam amet fugiat perspiciatis quam ullam facilis praesentium, perferendis accusantium quibusdam libero! Ipsa fugit ab nostrum consequuntur at reiciendis?
+				Asperiores, obcaecati. Iure eaque culpa optio aut facere repellendus ad, repellat hic, ipsum nobis a illum quas sunt. Excepturi autem cumque velit consequuntur aperiam molestias cupiditate eos libero corrupti architecto.
+				Accusamus mollitia nobis laborum dolorum illo porro dolorem, ex natus consequuntur autem cum hic quod sint! Dignissimos labore saepe deleniti. Eos dignissimos nemo error non sequi accusamus exercitationem corrupti esse!
+				Laudantium earum sed recusandae in praesentium dolorum molestiae ratione! Voluptas ducimus, veritatis veniam debitis sunt id vel, autem repudiandae amet tempora iste, expedita inventore reprehenderit dolorum nisi architecto. Maxime, non!
+				</p>
 			</div>
 		</div>
 		
 <!-- is-none -->
 
-		<div class="auth-overlay is-none" 
-			 data-panel="auth-overlay"> 
+		<div class="auth-overlay is-none" data-panel="auth-overlay"> 
+			<div class="auth-backdrop" 
+				data-action="close" 
+				data-target="auth-overlay">
+   			 </div>
 			<div class="auth-card">
 				<button 
 					type="button" 
@@ -37,30 +50,33 @@ require_once TEMPLATES_PATH . '/header.tpl';
 						<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 					</svg>
 				</button>
-				<div class="auth-tabs">
-					<ul>
-						<li>
-							<button class="auth-tab is-active" 
-									data-action="switch" 
-									data-target="reg-overlay" 
-									data-panel="auth-tab"
-									type="button">
-								Authorization
-							</button>
-						<li>
-							<button class="auth-tab" 
-									data-action="switch" 
-									data-target="auth-overlay" 
-									data-panel="reg-tab" 
-									type="button">
-								Registration
-							</button>
-						</li>
-					</ul>
-				</div>
+				
+				<ul class="switch-tabs" data-panel="switch-tabs-container">
+					<li>
+						<button class="auth-tab is-active" 
+								data-action="switch" 
+								data-target="form-login"
+								type="button">
+							Authorization
+						</button>
+					<li>
+						<button class="auth-tab" 
+								data-action="switch" 
+								data-target="form-reg" 
+								type="button">
+							Registration
+						</button>
+					</li>
+				</ul>
+				
 				
 				<div class="auth-content">
-					<form class="auth-form-login " id="auth_form_login" name="auth_form_login" action="" method="post">
+					<form class="auth-form-login " 
+							data-panel="form-login"
+							id="auth_form_login"
+							name="auth_form_login" 
+							action="" 
+							method="post">
 						
 						<label for="user_login">Login</label>
 						<input 
@@ -75,16 +91,21 @@ require_once TEMPLATES_PATH . '/header.tpl';
 							name="user_pas"
 							placeholder="******">
 						<div class="auth-spacer"></div>
-						<!-- <label class="is-hiden" for="new_user_pas_rep ">auth-spacer</label>
+						<!-- <label class="is-hidden" for="new_user_pas_rep ">auth-spacer</label>
 						<input 
-							class="auth-spacer is-hiden"
+							class="auth-spacer is-hidden"
 							type="text"
 							placeholder="******"> -->
 						<!-- <br> -->
 						<button class="btn btn-submit" type="submit">Send</button>			
 					</form>
 
-					<form class="auth-form-reg is-hiden" name="reg_window" id="reg_window" action="" method="post">
+					<form class="auth-form-reg is-hidden" 
+						data-panel="form-reg" 
+						name="reg_window" 
+						id="reg_window" 
+						action="" 
+						method="post">
 					
 						<label for="new_user_login">Login</label>
 						<input 

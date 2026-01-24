@@ -20,3 +20,9 @@ desktop.ini
 # Исключаем файлы конфигурации с паролями (если будешь их создавать)
 .env
 config.local.php
+
+# Настройки IntelliJ IDEA / WebStorm / PhpStorm
+.idea/
+*.iml
+cmake-build-*/
+out/
