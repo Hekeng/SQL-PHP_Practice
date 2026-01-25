@@ -11,8 +11,8 @@ function add_css($filename) {
 // Функция для подключения JavaScript
 function add_js($filename, $defer = true) {
     $defer_attr = $defer ? ' defer' : '';
-    // Генерируем HTML-тег <script>
-    echo '<script src="' . BASE_URL . '/assets/js/' . htmlspecialchars($filename) . '.js"' . $defer_attr . '></script>';
+    // Добавляем ?v= и штамп времени, чтобы файл всегда считался новым
+    echo '<script src="' . BASE_URL . '/assets/js/' . htmlspecialchars($filename) . '.js?v=' . time() . '"' . $defer_attr . '></script>';
 }
 
 

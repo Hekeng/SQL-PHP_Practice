@@ -252,7 +252,7 @@ body {
   position: absolute;
   top: var(--space-sm);
   right: var(--space-sm);
-line-height: 1;
+  line-height: 1;
   width: 1.6rem;
   height: 1.6rem;
   z-index: 8;
@@ -268,10 +268,19 @@ line-height: 1;
 
   cursor: pointer;
   transition: background-color var(--t-fast), color var(--t-fast);
-
-
-
   
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .btn-exit:hover {

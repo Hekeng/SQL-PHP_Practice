@@ -59,7 +59,20 @@ let panelActions = {
 	switch: switchPanel
 };
 
-let actionButtons = document.querySelectorAll("[data-action]");
+const actionButtons = document.querySelectorAll("[data-action]");
+const submitForms = document.querySelectorAll('[data-form="auth"]');
+
+// console.log("Найдено форм:", submitForms.length);
+
+submitForms.forEach(function (form) {
+    form.addEventListener("submit", handleSubmitButton)
+})
+
+function handleSubmitButton(event) {
+    event.preventDefault();
+    
+    console.log(submitForms);
+}
 
 actionButtons.forEach(function (button) {
     button.addEventListener("click", handleActionClick);

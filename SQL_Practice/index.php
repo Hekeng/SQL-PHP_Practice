@@ -15,25 +15,16 @@ require_once TEMPLATES_PATH . '/header.tpl';
 		
 	</div>
 
-	<div class="main_window ">
+	<main class="main_window ">
 
 		<div class="content">
 			<div class="some_content ">
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci non, sint rem maxime velit, quasi soluta neque dolorem maiores beatae suscipit animi, a vitae! Necessitatibus aliquam ducimus reiciendis enim ullam?
-				Aspernatur ipsum eveniet earum asperiores, nam ratione numquam dignissimos, fuga in ullam sequi voluptas neque repudiandae ea nihil suscipit cupiditate beatae reiciendis eos. Deserunt officia a quibusdam non laboriosam porro.
-				Placeat, dicta! Quia et ad perspiciatis incidunt iure, laborum laboriosam, atque ullam culpa, dolore aperiam odit ab autem nemo qui id soluta vero non praesentium expedita perferendis? Placeat, natus similique.
-				Optio distinctio quam doloremque veritatis. Delectus, labore quos! Modi assumenda impedit, neque necessitatibus nulla natus error dolores atque a explicabo harum molestiae tenetur ab vel iste beatae. Eveniet, cupiditate laboriosam.
-				Soluta, voluptates repudiandae! Rerum reprehenderit sunt cupiditate doloribus architecto velit temporibus harum excepturi. Repellat assumenda quod voluptatum, nulla iusto quos amet omnis officiis facere laboriosam deserunt vero! Et, atque voluptatem.
-				Delectus mollitia commodi perferendis non repudiandae, suscipit deserunt reiciendis! Omnis laborum veniam necessitatibus provident a ut qui nesciunt expedita molestiae enim, recusandae harum accusamus at alias iusto iure distinctio cumque!
-				Ad doloribus doloremque, quia in veritatis est dignissimos magnam cumque iste totam amet fugiat perspiciatis quam ullam facilis praesentium, perferendis accusantium quibusdam libero! Ipsa fugit ab nostrum consequuntur at reiciendis?
-				Asperiores, obcaecati. Iure eaque culpa optio aut facere repellendus ad, repellat hic, ipsum nobis a illum quas sunt. Excepturi autem cumque velit consequuntur aperiam molestias cupiditate eos libero corrupti architecto.
-				Accusamus mollitia nobis laborum dolorum illo porro dolorem, ex natus consequuntur autem cum hic quod sint! Dignissimos labore saepe deleniti. Eos dignissimos nemo error non sequi accusamus exercitationem corrupti esse!
-				Laudantium earum sed recusandae in praesentium dolorum molestiae ratione! Voluptas ducimus, veritatis veniam debitis sunt id vel, autem repudiandae amet tempora iste, expedita inventore reprehenderit dolorum nisi architecto. Maxime, non!
+				<p>Lorem ipsum dolor sit amet consectetur adip
 				</p>
 			</div>
 		</div>
 		
-<!-- is-none -->
+				<!-- is-none -->
 
 		<div class="auth-overlay is-none" data-panel="auth-overlay"> 
 			<div class="auth-backdrop" 
@@ -53,7 +44,9 @@ require_once TEMPLATES_PATH . '/header.tpl';
 				
 				<ul class="switch-tabs" data-panel="switch-tabs-container">
 					<li>
-						<button class="auth-tab is-active" 
+						<button class="auth-tab is-active"
+								role="heading" 
+        						aria-level="2" 
 								data-action="switch" 
 								data-target="form-login"
 								type="button">
@@ -61,6 +54,8 @@ require_once TEMPLATES_PATH . '/header.tpl';
 						</button>
 					<li>
 						<button class="auth-tab" 
+								role="heading" 
+        						aria-level="2" 
 								data-action="switch" 
 								data-target="form-reg" 
 								type="button">
@@ -68,51 +63,60 @@ require_once TEMPLATES_PATH . '/header.tpl';
 						</button>
 					</li>
 				</ul>
-				
+				<!-- <div class="info-to-do">
+					<h2>Wellkome!</h2>
+					<p>Please log in</p>
+				</div> -->
 				
 				<div class="auth-content">
 					<form class="auth-form-login " 
 							data-panel="form-login"
+							data-form="auth"
+							data-action="close"
+							data-target="auth-overlay"
 							id="auth_form_login"
 							name="auth_form_login" 
 							action="" 
 							method="post">
-						
-						<label for="user_login">Login</label>
+						<h2 class="sr-only">Authorization Form</h2>
+						<label for="user_login">E-mail</label>
 						<input 
 							type="text"
 							name="user_login"
 							id="user_login"
-							placeholder="Login" autofocus>
+							placeholder="mail@you-email.com" autofocus>
 						<label for="user_pas">Password</label>
+						<span class="error-text"></span>
 						<input 
 							type="password"
 							id="user_pas"
 							name="user_pas"
 							placeholder="******">
+						<span class="error-text"></span>
 						<div class="auth-spacer"></div>
-						<!-- <label class="is-hidden" for="new_user_pas_rep ">auth-spacer</label>
-						<input 
-							class="auth-spacer is-hidden"
-							type="text"
-							placeholder="******"> -->
-						<!-- <br> -->
-						<button class="btn btn-submit" type="submit">Send</button>			
+						<button class="btn btn-submit"
+
+								
+								
+								type="submit">Send</button>			
 					</form>
 
 					<form class="auth-form-reg is-hidden" 
 						data-panel="form-reg" 
+						data-form="auth"
+						data-action="close"
+						data-target="auth-overlay"
 						name="reg_window" 
 						id="reg_window" 
 						action="" 
 						method="post">
-					
-						<label for="new_user_login">Login</label>
+						<h2 class="sr-only">Registration Form</h2>
+						<label for="new_user_login">E-mail</label>
 						<input 
 							type="text"
 							name="new_user_login"
 							id="new_user_login"
-							placeholder="Login" autofocus>
+							placeholder="mail@you-email.com" autofocus>
 						<label for="new_user_pas">Password</label>
 						<input 
 							type="password"
@@ -120,13 +124,18 @@ require_once TEMPLATES_PATH . '/header.tpl';
 							id="new_user_pas"
 							placeholder="******">
 						<label for="new_user_pas_rep">Repeat Password</label>
+						<span class="error-text"></span>
 						<input 
 							type="password"
 							name="new_user_pas_rep"
 							id="new_user_pas_rep"
 							placeholder="******">
+							<span class="error-text"></span>
 						<!-- <br> -->
-						<button class="btn btn-submit" type="submit">Registration user</button>
+						<button class="btn btn-submit" 
+								
+								
+						type="submit">Registration user</button>
 					</form>
 
 				</div>
@@ -159,7 +168,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 
 		</div>
 
-	</div>
+	</main>
 </div>
 </div>
 <?php

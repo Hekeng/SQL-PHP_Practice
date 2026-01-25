@@ -34,13 +34,13 @@
     </nav>
 
     <div class="auth-box">
-      <!-- кнопка открытия модалки -->
-      <a href="#login" 
+      
+      <button
          class="btn btn-header" 
          data-action="open" 
          data-target="auth-overlay">
          Sign In
-      </a>
+      </button>
 
       <div class="avatar"></div>
     </div>
