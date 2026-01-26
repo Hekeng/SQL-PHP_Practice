@@ -39,12 +39,12 @@ html {
   /* ================= PALETTE ================= */
   /* ---------------- ОСНОВНОЙ ЦВЕТ primary ----------------   */
   --primary-100: #d0e4e3;/* Для мягких подсветок фоны карточек, hover */
-  --primary-500: #037971;/* Главный цвет: лого, активные элементы */
+  --primary-500: #0ea5e9;/* Главный цвет: лого, активные элементы */
   --primary-700: #025d57;/* Темнее для наведения (hover) */
 
   /* ---------------- АКЦЕНТ / КНОПКИ  ---------------- */
   --accent-100: #f9e8d4;/* легкий фон/hover на карточках */
-  --accent-500: #d48444;/* акцентные кнопки, badges, promo */
+  --accent-500: #ffa200;/* акцентные кнопки, badges, promo */
   --accent-700: #b56b33;/* hover/active для акцентов */
 
   /* gray scale */
@@ -76,6 +76,7 @@ html {
   /* ================= MOTION ================= */
   --t-fast: 0.2s ease;
 }
+
 .btn{
   display: inline-flex;
   align-items: center;
@@ -109,7 +110,7 @@ html {
   /* position: fixed; */
   position: sticky;
   inset: 0 0 auto 0;
-  z-index: 9;
+  z-index: 90;
   background-color: var(--gray-100);
   border-bottom: 1px solid var(--gray-300);
 }
@@ -128,6 +129,7 @@ html {
 
 .logo-box {
   display: flex;
+  
   font-weight: 700;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
@@ -135,11 +137,13 @@ html {
 }
 
 .logo-box strong {
+  color: var(--primary-500);
   transition: transform var(--t-fast);
   
 }
 
 .logo-box:hover strong {
+  color: var(--primary-700);
   transform: translateY(-2px);
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -152,7 +156,7 @@ html {
 }
 
 .main-nav a {
-  font-size: var(--fs-base);/*возможно проблема с моим пониманием размеров но 16px тут уместно а вот в тексте восвем нет*/
+  font-size: var(--fs-base);
   font-weight: 500;
   color: var(--color-text-main);
   transition: color var(--t-fast);
@@ -162,13 +166,28 @@ html {
   color: var(--color-primary);
 }
 
- .btn-header {
+ .btn-sign-in {
   padding: var(--space-xs) var(--space-md);
+}
+
+.btn-profile{
+  padding: var(--space-sm) var(--space-sm);
+  
+  width: 2.3rem;
+  height: 2.3rem; 
+}
+
+.btn-admin{
+  
+  padding: var(--space-sm) var(--space-sm);
+  width: 2.3rem;
+  height: 2.3rem; 
+
 }
 
 /*BODY*/
 
-.nav-link, .logo-box, .btn-header {
+.nav-link, .logo-box, .btn-sign-in {
   white-space: nowrap; 
 }
 
@@ -177,7 +196,8 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
-  min-height: 100vh;
+  height: 100vh;
+  /* min-height: 100vh; */
   font-family: var(--font-main);
   font-size: var(--fs-base);
   line-height: 1.5;
@@ -185,13 +205,42 @@ body {
   color: var(--color-text-main);
 }
 
+
+.content-wrapper{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  min-height: 0;
+  flex-grow: 1; 
+  overflow: hidden;
+}
+
+.main_window{
+  overflow-y: auto; 
+  height: 100%;
+}
+
 .content {
   padding: var(--space-md) var(--space-lg);
+}
+
+/* ================= sidebar ================= */
+
+
+
+.sidebar{
+  overflow-y: auto;
 }
 
 .aside{
   /* width: min(100%, 18rem); */
 }
+
+
+
+
+
+
+
 /* ================= AUTH OVERLAY ================= */
 .auth-overlay {
   position: fixed;
@@ -418,6 +467,63 @@ input:focus::placeholder {
 .btn-submit {
   margin-top: var(--space-lg);
 }
+
+
+/* ================= Status buttons ================= */
+/* .auth-box .btn-sign-in, 
+.auth-box .btn-profile, 
+.auth-box .btn-admin { 
+  display: none; 
+}
+
+
+.auth-box[data-status="guest"] .btn-sign-in { display: inline-flex; }
+
+
+.auth-box[data-status="user"] .btn-profile { display: inline-flex; }
+
+
+.auth-box[data-status="admin"] .btn-admin { display: inline-flex; }  */
+
+
+.auth-box {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  /* margin-left: var(--space-md); */
+  width: 6rem; 
+  /* Это критично: запрещаем хедеру сжимать этот блок */
+  flex-shrink: 0;
+}
+
+
+
+/* Показываем нужное */
+
+body[data-status="guest"] .btn-sign-in { display: inline-block; }
+
+body[data-status="guest"] .btn-profile { display: none; }
+
+body[data-status="guest"] .btn-admin { display: none; }
+
+
+
+body[data-status="user"] .btn-sign-in { display: none; }
+
+body[data-status="user"] .btn-profile { display: inline-block; }
+
+body[data-status="user"] .btn-admin { display: none; }
+
+
+
+body[data-status="admin"] .btn-sign-in { display: none; }
+
+body[data-status="admin"] .btn-profile { display: none; }
+
+body[data-status="admin"] .btn-admin { display: inline-block; }
+
+
+
 
 
 /* ================= VISIBILITY ================= */

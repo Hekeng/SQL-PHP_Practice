@@ -10,19 +10,56 @@ require_once TEMPLATES_PATH . '/header.tpl';
 
 ?>
 
-<div class="content-wrapper">
-	<div class="sidebar is-none">
-		
-	</div>
+<div class="content-wrapper" data-status="guest">
 
-	<main class="main_window ">
+<aside class="sidebar">
+    <div class="nav-group">
+        <span class="nav-caption">Main Data</span>
+        <ul>
+            <li>
+                <button class="nav-btn is-active" data-action="switch" data-target="dashboard_view">
+                    <i class="icon-chart"></i> Inflation ChartsInflation Charts
+                </button>
+            </li>
+            <li>
+                <button class="nav-btn" data-action="switch" data-target="index_calc">
+                    <i class="icon-calc"></i> Calculator
+                </button>
+            </li>
+        </ul>
+    </div>
 
-		<div class="content">
-			<div class="some_content ">
-				<p>Lorem ipsum dolor sit amet consectetur adip
-				</p>
-			</div>
-		</div>
+    <div class="nav-group only-user">
+        <span class="nav-caption">Personal</span>
+        <ul>
+            <li>
+                <button class="nav-btn" data-action="switch" data-target="user_window">
+                    My Portfolio
+                </button>
+            </li>
+        </ul>
+    </div>
+</aside>
+
+    <main class="main_window">
+        
+        <button class="sidebar-toggle" data-action="open" data-target="sidebar">☰ Menu</button>
+
+        <div class="content">
+            <div class="guest-content" data-panel="guest_view">
+                <h2>Inflation Indexes</h2>
+                <p>Please Sign In to customize your dashboard.</p>
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis sunt quod atque, qui rem est neque voluptate delectus! Et placeat nesciunt architecto labore minus cupiditate soluta eos deleniti facere eaque!
+				Dolorum accusamus reprehenderit iure repudiandae quisquam! Sunt cumque, dolore excepturi ab sit ipsum. Beatae cumque incidunt aspernatur debitis, doloribus a, laborum commodi molestiae ullam, iste reiciendis alias recusandae obcaecati esse.
+				Expedita eveniet fugiat, ut maxime sequi facilis voluptatem pariatur accusantium illo dolore aperiam ipsa, minus laborum optio! Rem ut doloremque laboriosam reiciendis pariatur, expedita porro error quis, aliquid, magni facere!
+				Dolor quisquam vero tenetur adipisci explicabo distinctio non animi corrupti dolorum? Adipisci ipsum aspernatur, quasi nobis consequuntur error at consectetur? Nulla dolore, earum ipsam odio iure explicabo culpa voluptatum fuga!
+				Saepe, voluptatem. Repellendus temporibus impedit consequuntur animi tempore. Voluptatum, velit tempora asperiores enim impedit facere ad. Et dolores delectus voluptatum vero. Eveniet aperiam magni numquam blanditiis dignissimos nihil facilis ipsam.
+				Quos ab et enim vel soluta maxime adipisci sequi quae nesciunt, saepe repellat consequatur reiciendis. Qui voluptatem est nostrum cum libero soluta, possimus, quae totam ratione nam repudiandae aspernatur doloribus.
+				Necessitatibus temporibus tempora expedita est nobis minus deserunt culpa sint dicta repellat at, libero provident ducimus deleniti fugit labore? Laboriosam dolorem ducimus sit similique necessitatibus quod aliquid voluptatum amet dignissimos.
+				Perspiciatis maiores ratione, pariatur explicabo fuga ea aperiam, nostrum alias reprehenderit amet fugit dolor laboriosam iure exercitationem quod labore dolore vel, voluptates iste dicta minima laborum numquam harum repellendus. Libero!
+				Maxime vel unde voluptatibus ipsum enim molestiae consequatur sapiente, consequuntur, eos at beatae tempora perferendis? Est fuga nemo similique molestiae voluptas accusamus obcaecati dolor, exercitationem porro assumenda laborum voluptates ratione.
+				Nihil animi dolor laborum repellat amet maiores recusandae sed, fuga numquam velit saepe odit quod consequuntur quia sequi, impedit, veritatis error temporibus minima laboriosam? Omnis tempora placeat voluptatibus rerum atque?</p>
+            </div>
 		
 				<!-- is-none -->
 
@@ -85,8 +122,8 @@ require_once TEMPLATES_PATH . '/header.tpl';
 							name="user_login"
 							id="user_login"
 							placeholder="mail@you-email.com" autofocus>
-						<label for="user_pas">Password</label>
 						<span class="error-text"></span>
+						<label for="user_pas">Password</label>
 						<input 
 							type="password"
 							id="user_pas"
@@ -117,20 +154,22 @@ require_once TEMPLATES_PATH . '/header.tpl';
 							name="new_user_login"
 							id="new_user_login"
 							placeholder="mail@you-email.com" autofocus>
+						<span class="error-text"></span>
 						<label for="new_user_pas">Password</label>
 						<input 
 							type="password"
 							name="new_user_pas"
 							id="new_user_pas"
 							placeholder="******">
-						<label for="new_user_pas_rep">Repeat Password</label>
 						<span class="error-text"></span>
+						<label for="new_user_pas_rep">Repeat Password</label>
+						
 						<input 
 							type="password"
 							name="new_user_pas_rep"
 							id="new_user_pas_rep"
 							placeholder="******">
-							<span class="error-text"></span>
+						<span class="error-text"></span>
 						<!-- <br> -->
 						<button class="btn btn-submit" 
 								
@@ -142,33 +181,30 @@ require_once TEMPLATES_PATH . '/header.tpl';
 			</div>
 		</div>
 	
-		<div class="user_window is-none" 
-			data-panel="user_window"
-			id="user_panel">
-			<h2>Welcome, <span class="user_name"></span></h2>
-			<div class="personal_data">
-				<h3>Personal data</h3>
-				<hr>
-				<form action="" method="post">
-					<ul>
-						<li>
-							<span id="e-mail">213213@gmail.com</span>
-							<span id="user_name">Vasia</span>
-							<span id="user_surname">0.25</span>
-							<input type="text" id="sku_count1" placeholder="0">
-							<input type="checkbox" id="sku_check1">
-						</li>
-					</ul>
-					<button type="button" id="confirm_order">buy</button>
-				</form>
-			</div>
-		</div>
+		<div class="user_window is-none" data-panel="user_window">
+                <h2>Welcome, <span class="user_name">Vasia</span> !</h2>
+                <div class="personal_data">
+                    <h3>Your Dashboard Settings</h3>
+                    <hr>
+                    <form action="" method="post">
+                        <ul>
+                            <li>
+                                <span>E-mail: 213213@gmail.com</span>
+                                <input type="text" placeholder="Custom Label">
+                                <input type="checkbox" id="notify">
+                            </li>
+                        </ul>
+                        <button type="submit" class="btn">Save changes</button>
+                    </form>
+                </div>
+            </div>
 
-		<div class="admin_window is-none" id="admin_panel">
-
-		</div>
-
-	</main>
+            <div class="admin_window is-none" data-panel="admin_window">
+                <h2>Admin Control Panel</h2>
+                <p>System status: OK</p>
+                </div>
+        </div>
+    </main>
 </div>
 </div>
 <?php

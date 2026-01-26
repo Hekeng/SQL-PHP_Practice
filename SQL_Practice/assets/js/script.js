@@ -65,13 +65,26 @@ const submitForms = document.querySelectorAll('[data-form="auth"]');
 // console.log("Найдено форм:", submitForms.length);
 
 submitForms.forEach(function (form) {
-    form.addEventListener("submit", handleSubmitButton)
+    form.addEventListener("submit", handleSubmitButton);
+
 })
 
 function handleSubmitButton(event) {
     event.preventDefault();
+    let form = event.currentTarget;
+	let action = form.dataset.action;
+	// let target = clickedButton.dataset.target;
+    if (panelActions[action]) {
+        panelActions[action](form);
+		
+    }
+	setAuthStatus('user');
+	console.log(action);
+	console.log(form);
+
+	// updateHeaderButton(); 
+    // sendDataToServer(form);
     
-    console.log(submitForms);
 }
 
 actionButtons.forEach(function (button) {
@@ -79,55 +92,57 @@ actionButtons.forEach(function (button) {
 });
 
 function handleActionClick(e) {
-    let action = e.currentTarget.dataset.action;
-    let clickedButton = e.currentTarget;
+    if (e.currentTarget.tagName === 'FORM') return;
+    let triggerElement = e.currentTarget;
+	let action = triggerElement.dataset.action;
 	// let target = clickedButton.dataset.target;
     if (panelActions[action]) {
-        panelActions[action](clickedButton);
+        panelActions[action](triggerElement);
 		
     }
 }
 
-function openPanel(clickedButton) {
-	let targetPanel = getPanel(clickedButton);
+function openPanel(triggerElement) {
+	let targetPanel = getPanel(triggerElement);
 	if (!targetPanel) return;
 	targetPanel.classList.remove("is-none");
 }
 
-function closePanel(clickedButton) {
-	let targetPanel = getPanel(clickedButton);
+function closePanel(triggerElement) {
+	let targetPanel = getPanel(triggerElement);
 	if (!targetPanel) return;
 	targetPanel.classList.add("is-none"); 	
 }
 
-function switchPanel(clickedButton) {
-    if (clickedButton.classList.contains("is-active")) {
+function switchPanel(triggerElement) {
+    if (triggerElement.classList.contains("is-active")) {
         return;
     }
-    switchTabs(clickedButton);
-    switchPanels(clickedButton);
+    switchTabs(triggerElement);
+    switchPanels(triggerElement);
 }
 
-function getPanel(clickedButton) {
-    let target = clickedButton.dataset.target;
-    if (!target) return null; // Если у кнопки вообще нет цели
+function getPanel(triggerElement) {
+    let target = triggerElement.dataset.target;
+    if (!target) return null; 
+	console.log('panel haf findet');
     return document.querySelector('[data-panel="' + target + '"]') || null;
 }
 
 
-function switchTabs(clickedButton) {
-    let tabsContainer = clickedButton.closest('[data-panel="switch-tabs-container"]');
+function switchTabs(triggerElement) {
+    let tabsContainer = triggerElement.closest('[data-panel="switch-tabs-container"]');
 	if (!tabsContainer) return;
     let tabs = tabsContainer.querySelectorAll('[data-action="switch"]');
     for (let i = 0; i < tabs.length; i++) {
         tabs[i].classList.remove("is-active");
     }
-    clickedButton.classList.add("is-active");
+    triggerElement.classList.add("is-active");
 }
 
-function switchPanels(clickedButton) {
+function switchPanels(triggerElement) {
 
-	let targetPanel = getPanel(clickedButton);
+	let targetPanel = getPanel(triggerElement);
 	if (!targetPanel) return;
 	let container =  targetPanel.parentElement;
 	let targetFamily = container.children;
@@ -141,6 +156,11 @@ function switchPanels(clickedButton) {
 		}
 	}
 
+}
+
+function setAuthStatus(status) {
+	document.body.dataset.status = status;
+    console.log("Статус изменен на:", status);
 }
 
 // function switchPanel(e) {

@@ -16,12 +16,12 @@
 
 </head>
 
-<body>
+<body data-status="guest">
 
 <header class="main-header">
   <div class="header-container">
     
-    <a href="/" class="logo-box">
+    <a href="###" class="logo-box">
       <strong>Alt-Inflation</strong>
     </a>
 
@@ -34,16 +34,26 @@
     </nav>
 
     <div class="auth-box">
+		<button class="btn btn-sign-in"  
+				data-action="open" 
+				data-target="auth-overlay">Sign In</button>
+		<button class="btn btn-profile" 
+				data-action="open" 
+				data-target="user-menu"></button>
+		<button class="btn btn-admin" 
+				data-action="link" 
+				data-target="admin-menu"></button>
+	</div>
       
-      <button
-         class="btn btn-header" 
+      <!-- <button
+         
          data-action="open" 
          data-target="auth-overlay">
          Sign In
       </button>
 
       <div class="avatar"></div>
-    </div>
+    </div> -->
 
   </div>
 </header>
