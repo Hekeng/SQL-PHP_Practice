@@ -225,14 +225,59 @@ body {
 
 /* ================= sidebar ================= */
 
-
-
 .sidebar{
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding-right: var(--space-lg);
+
+  background-color: var(--gray-100);
+
+  border: 1px solid rgba(0,0,0,0.05);
+
+  transform: translateY(0);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
 }
 
-.aside{
-  /* width: min(100%, 18rem); */
+.options-navigation {
+  display: flex; 
+  flex-direction: column;
+}
+.nav-group {
+  flex-grow: 1;
+}
+.options {
+}
+
+.shortUserInfo {
+}
+
+.avatar {
+}
+
+.personal_info {
+}
+
+.userE-mail {
+}
+
+
+
+.nav-caption {
+}
+.nav-btn {
+}
+.is-active {
+}
+.icon-chart {
+}
+.icon-calc {
+}
+.only-user {
+}
+.is-none {
+}
+.only-admin {
 }
 
 
@@ -415,10 +460,10 @@ body {
   box-shadow: 0 0 0 3px var(--primary-100);
 }
 
-input:focus::placeholder {
+/* input:focus::placeholder {
   transition: opacity 0.3s ease;
     opacity: 0;
-}
+} */
 
 /* ================= TABS ================= */
 .switch-tabs {

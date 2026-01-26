@@ -78,7 +78,7 @@ function handleSubmitButton(event) {
         panelActions[action](form);
 		
     }
-	setAuthStatus('user');
+	setAuthStatus('user');//убрать!!!
 	console.log(action);
 	console.log(form);
 
@@ -100,6 +100,7 @@ function handleActionClick(e) {
         panelActions[action](triggerElement);
 		
     }
+    inputAutofocus(triggerElement);
 }
 
 function openPanel(triggerElement) {
@@ -125,7 +126,6 @@ function switchPanel(triggerElement) {
 function getPanel(triggerElement) {
     let target = triggerElement.dataset.target;
     if (!target) return null; 
-	console.log('panel haf findet');
     return document.querySelector('[data-panel="' + target + '"]') || null;
 }
 
@@ -151,6 +151,7 @@ function switchPanels(triggerElement) {
 		let panel = targetFamily[i];
 		if (panel === targetPanel) { 
 				panel.classList.remove("is-hidden");
+                // inputaUtofocus(container);
 			} else {
 				panel.classList.add("is-hidden");
 		}
@@ -163,6 +164,31 @@ function setAuthStatus(status) {
     console.log("Статус изменен на:", status);
 }
 
+
+function inputAutofocus(triggerElement) {
+    let target = triggerElement.dataset.target;
+    if (!target) return;
+
+    let targetCollection = document.querySelector(`[data-panel="${target}"]`);
+    if (!targetCollection) return;
+
+    // Ищем форму: проверяем сам элемент или ищем внутри
+    let firstForm;
+    if (targetCollection.tagName === 'FORM') {
+        firstForm = targetCollection;
+    } else {
+        firstForm = targetCollection.querySelector('form');
+    }
+
+    if (!firstForm) return;
+
+    // Ищем первый видимый инпут
+    let activeInput = firstForm.querySelector('input:not([type="hidden"])');
+    
+    if (activeInput) {
+        activeInput.focus();
+    }
+}
 // function switchPanel(e) {
 	
 // 	let clickedButton = e.currentTarget;

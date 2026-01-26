@@ -13,32 +13,65 @@ require_once TEMPLATES_PATH . '/header.tpl';
 <div class="content-wrapper" data-status="guest">
 
 <aside class="sidebar">
-    <div class="nav-group">
-        <span class="nav-caption">Main Data</span>
-        <ul>
-            <li>
-                <button class="nav-btn is-active" data-action="switch" data-target="dashboard_view">
-                    <i class="icon-chart"></i> Inflation ChartsInflation Charts
-                </button>
-            </li>
-            <li>
-                <button class="nav-btn" data-action="switch" data-target="index_calc">
-                    <i class="icon-calc"></i> Calculator
-                </button>
-            </li>
-        </ul>
-    </div>
+	<div class="options-navigation">
+		<div class="shortUserInfo">
+			<div class="avatar"></div>
+			<div class="personal_info"></div>
+			<div class="userE-mail"></div>
+		</div>
+		
+		<nav class="nav-group">
+			<ul>
+				<h2 class="nav-caption">Main options</h2>
+				<li>
+					<button class="nav-btn is-active" 
+							data-action="switch" 
+							data-target="">
+						<i class="icon-options"></i> Global Settings
+					</button>
+				</li>
+				<li>
+					<button class="nav-btn" 
+							data-action="switch" 
+							data-target="">
+						<i class="icon-FirstIndex"></i> First Index
+					</button>
+				</li>
+								<li>
+					<button class="nav-btn" data-action="switch" data-target="index_calc">
+						<i class="icon-FirstIndex""></i> Second Index
+					</button>
+				</li>
+			</ul>
+		</nav>
 
-    <div class="nav-group only-user">
-        <span class="nav-caption">Personal</span>
-        <ul>
-            <li>
-                <button class="nav-btn" data-action="switch" data-target="user_window">
-                    My Portfolio
-                </button>
-            </li>
-        </ul>
-    </div>
+		<div class="nav-group only-user is-none">
+			<ul>
+				<h2 class="nav-caption">Personal</h2>
+				<li>
+					<button class="nav-btn" data-action="switch" data-target="user_window">
+						My Portfolio
+					</button>
+				</li>
+			</ul>
+		</div>
+				<div class="nav-group only-admin is-none">
+			<h2 class="nav-caption">admin</h2>
+			<ul>
+				<li>
+					<button class="nav-btn" data-action="switch" data-target="user_window">
+					</button>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="options">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
 </aside>
 
     <main class="main_window">
@@ -47,7 +80,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 
         <div class="content">
             <div class="guest-content" data-panel="guest_view">
-                <h2>Inflation Indexes</h2>
+                <h1>Inflation Indexes</h1>
                 <p>Please Sign In to customize your dashboard.</p>
 				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis sunt quod atque, qui rem est neque voluptate delectus! Et placeat nesciunt architecto labore minus cupiditate soluta eos deleniti facere eaque!
 				Dolorum accusamus reprehenderit iure repudiandae quisquam! Sunt cumque, dolore excepturi ab sit ipsum. Beatae cumque incidunt aspernatur debitis, doloribus a, laborum commodi molestiae ullam, iste reiciendis alias recusandae obcaecati esse.
@@ -121,7 +154,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 							type="text"
 							name="user_login"
 							id="user_login"
-							placeholder="mail@you-email.com" autofocus>
+							placeholder="mail@you-email.com" >
 						<span class="error-text"></span>
 						<label for="user_pas">Password</label>
 						<input 
@@ -153,7 +186,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 							type="text"
 							name="new_user_login"
 							id="new_user_login"
-							placeholder="mail@you-email.com" autofocus>
+							placeholder="mail@you-email.com" >
 						<span class="error-text"></span>
 						<label for="new_user_pas">Password</label>
 						<input 
