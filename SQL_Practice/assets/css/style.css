@@ -153,13 +153,13 @@ html {
 }
 
 .logo-box:hover strong {
-  color: var(--primary-700);
+  color: var(--accent-500);
   transform: translateY(-2px);
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .logo-box:active strong {
-  color: var(--primary-700);
+  color: var(--accent-500);
   transform: translateY(0px);
   
 }
@@ -254,21 +254,29 @@ body {
 
 .sidebar{
   display: flex;
-  flex-direction: column;
+  
+  flex-direction: row;
   /* padding-right: var(--space-xs); */
+  width: auto;
+  min-width: 15rem;
+  max-width: 50rem;
   z-index: 10;
   background-color:  var(--gray-100);
-
-  border: 1px solid var(--gray-300);
-
   transform: translateY(0);
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 }
 
+.sidebar h2{
+  padding: 0rem 1rem ;
+}
+
 .options-navigation {
+  border-right: 1px solid var(--gray-300);
+  flex-shrink: 0;
   display: flex; 
   flex-direction: column;
+
 }
 
 .nav-group {
@@ -303,9 +311,10 @@ body {
   position: relative;
   margin-right: -1px;
   
+  transition: all 0.4s ease;
   /* box-shadow: var(--shd-low); */
-  box-shadow: -4px 4px 10px -3px rgba(0,0,0,0.1);
-  transition: transform var(--t-fast), box-shadow var(--t-fast);
+  /* box-shadow: -4px 4px 10px -3px rgba(0,0,0,0.1);
+  transition: transform var(--t-fast), box-shadow var(--t-fast); */
 
 }
 
@@ -347,8 +356,32 @@ body {
   
 }
 
-
 .options {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-right: 1px solid var(--gray-300);
+  max-width: 0;
+  width: 20rem;
+  overflow: hidden;
+  width: auto;
+  transition: max-width 0.4s; 
+}
+
+.options.is-active { 
+  max-width: 50rem; 
+}
+
+.options-panel.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+ 
+}
+
+.options-panel{
+  grid-area: 1 / 1;
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+  padding: var(--space-md);
 }
 
 .shortUserInfo {
@@ -379,6 +412,37 @@ body {
 .is-none {
 }
 .only-admin {
+}
+
+.sidebar-toggle {
+  background-color: var(--accent-500); /* Твой оранжевый */
+  color: #ffffff;
+  border: none;
+  border-radius: var(--br-md);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color var(--t-fast);
+}
+
+.sidebar-toggle:hover {
+  background-color: var(--accent-700);
+}
+
+/* Скрываем шеврон по умолчанию */
+.sidebar-toggle .icon-chevron {
+  display: none;
+}
+
+/* При ховере прячем сэндвич и показываем шеврон */
+.sidebar-toggle:hover .icon-menu {
+  display: none;
+}
+
+.sidebar-toggle:hover .icon-chevron {
+  display: block;
 }
 
 /* ================= AUTH OVERLAY ================= */

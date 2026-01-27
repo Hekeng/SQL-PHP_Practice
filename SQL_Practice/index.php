@@ -20,26 +20,30 @@ require_once TEMPLATES_PATH . '/header.tpl';
 			<div class="userE-mail"></div>
 		</div>
 		
-		<nav class="nav-group">
+		<nav class="nav-group"
+				>
 			<h2 class="nav-caption">Main options</h2>
-			<ul class="switch-tabs-button">
+			<ul class="switch-tabs-button"
+				data-panel="switch-tabs-container">
 				
 				<li>
-					<button class="nav-btn is-active" 
+					<button class="nav-btn" 
 							data-action="switch" 
-							data-target="">
+							data-target="dashboard_view">
 						<i class="icon-options"></i> Global Settings
 					</button>
 				</li>
 				<li>
 					<button class="nav-btn" 
 							data-action="switch" 
-							data-target="">
+							data-target="first_index">
 						<i class="icon-FirstIndex"></i> First Index
 					</button>
 				</li>
 								<li>
-					<button class="nav-btn" data-action="switch" data-target="index_calc">
+					<button class="nav-btn" 
+							data-action="switch" 
+							data-target="second_index">
 						<i class="icon-FirstIndex""></i> Second Index
 					</button>
 				</li>
@@ -67,19 +71,49 @@ require_once TEMPLATES_PATH . '/header.tpl';
 			</ul>
 		</div>
 	</div>
-	<div class="options">
-		<ul>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
+	<div class="options " data-panel="switch-tabs-container">
+		<div class="options-panel" 
+			data-panel="dashboard_view">
+			<h3>Global Settings</h3>
+			<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Et eveniet, ea praesentium totam neque quisquam, modi maxime natus nulla veniam optio eum. Recusandae earum soluta modi iure sapiente exercitationem ducimus.
+			 </p>
+		</div>
+		<div class="options-panel is-hidden" 
+				data-panel="first_index">
+			<h3>First Index</h3>
+			<input type="number">
+		</div>
+			<div class="options-panel is-hidden" 
+				data-panel="second_index">
+			<h3>Second Index</h3>
+			<input type="number">
+		</div>
 	</div>
 </aside>
 
     <main class="main_window">
-        
-        <button class="sidebar-toggle" data-action="open" data-target="sidebar">☰ Menu</button>
+ 
+		<div class="btn-close-sideBar">
+			<button class="sidebar-toggle" data-action="open" data-target="sidebar">
+				<i>
+					<svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<line class="line-top" x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+						<line class="line-mid" x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+						<line class="line-bot" x1="4" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+					</svg>
+				</i>
+				<i>
+					<svg class="icon-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  						<path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</i>
 
+			</button>
+
+
+
+
+		</div>
         <div class="content">
             <div class="guest-content" data-panel="guest_view">
                 <h1>Inflation Indexes</h1>

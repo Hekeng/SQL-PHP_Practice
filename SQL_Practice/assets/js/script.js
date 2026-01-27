@@ -156,6 +156,7 @@ function switchPanels(triggerElement) {
 				panel.classList.add("is-hidden");
 		}
 	}
+    container.classList.add("is-active");
 
 }
 
