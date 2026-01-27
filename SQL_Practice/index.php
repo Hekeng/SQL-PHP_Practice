@@ -21,8 +21,9 @@ require_once TEMPLATES_PATH . '/header.tpl';
 		</div>
 		
 		<nav class="nav-group">
+			<h2 class="nav-caption">Main options</h2>
 			<ul class="switch-tabs-button">
-				<h2 class="nav-caption">Main options</h2>
+				
 				<li>
 					<button class="nav-btn is-active" 
 							data-action="switch" 
@@ -46,8 +47,9 @@ require_once TEMPLATES_PATH . '/header.tpl';
 		</nav>
 
 		<div class="nav-group only-user is-none">
+			<h2 class="nav-caption">Personal</h2>
 			<ul class="switch-tabs-button">
-				<h2 class="nav-caption">Personal</h2>
+				
 				<li>
 					<button class="nav-btn" data-action="switch" data-target="user_window">
 						My Portfolio
@@ -55,7 +57,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 				</li>
 			</ul>
 		</div>
-				<div class="nav-group only-admin is-none">
+			<div class="nav-group only-admin is-none">
 			<h2 class="nav-caption">admin</h2>
 			<ul class="switch-tabs-button" >
 				<li>

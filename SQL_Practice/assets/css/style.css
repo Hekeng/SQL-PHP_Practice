@@ -32,9 +32,18 @@ html {
   --br-sm: 0.4rem;    /*(для маленьких кнопок/инпутов)*/
   --br-md: 1.2rem;    /*(для основных карточек, как на макете)*/
 
-  /* ================= SHADOW ================= */
-  --shd-low: 0 2px 8px rgba(0,0,0,0.2);/*(едва заметная)*/
-  --shd-high: 0 8px 20px rgba(0,0,0,0.3);/*(для акцента)*/
+/* ================= SHADOW ================= */
+/* Почти плоская тень для обычных кнопок */
+--shd-flat: -2px 2px 4px rgba(0,0,0,0.05);
+
+/* Твоя рабочая тень для сайдбара (левая) */
+--shd-low: -4px 4px 12px -3px rgba(0,0,0,0.1);
+
+/* Тень при наведении (Hover) — "взлет" */
+--shd-medium: -6px 8px 20px -5px rgba(0,0,0,0.15);
+
+/* Тень для модалок (High) — очень глубокая */
+--shd-high: 0 12px 30px -10px rgba(0,0,0,0.3);
 
   /* ================= PALETTE ================= */
   /* ---------------- ОСНОВНОЙ ЦВЕТ primary ----------------   */
@@ -58,6 +67,7 @@ html {
   --color-bg: var(--gray-50);
   --color-surface: #fefefe;
   --color-border: var(--gray-300);
+  --color-sidebar: #eceae0;
 
   --color-text-main: #303036;
   --color-text-muted: var(--gray-500);
@@ -111,7 +121,7 @@ html {
   position: sticky;
   inset: 0 0 auto 0;
   z-index: 90;
-  background-color: var(--gray-100);
+  background-color: var(--primary-700);
   border-bottom: 1px solid var(--gray-300);
 }
 
@@ -246,8 +256,8 @@ body {
   display: flex;
   flex-direction: column;
   /* padding-right: var(--space-xs); */
-
-  background-color:  var(--color-bg);
+  z-index: 10;
+  background-color:  var(--gray-100);
 
   border: 1px solid var(--gray-300);
 
@@ -272,19 +282,18 @@ body {
   justify-content: space-between;
   width: 100%;
   margin-bottom: var(--space-md);
-  border-bottom: 1px solid var(--gray-100);
+  /* border-bottom: 1px solid var(--gray-100); */
   /* padding-right: var(--space-sm);  */
   box-sizing: border-box;
 
 }
 
 .nav-btn {
-  color: var(--gray-700);
   padding: var(--space-sm);
   font-size: var(--fs-button);
   font-weight: 500;
-  width: 100%;
-
+  width: calc(100% + 1px);
+  z-index: 70;
   background: none;
   border: none;
   cursor: pointer;
@@ -292,22 +301,25 @@ body {
   color: var(--color-text-muted);
   /* transition: color var(--t-fast); */
   position: relative;
-
+  margin-right: -1px;
   
-  box-shadow: var(--shd-low);
+  /* box-shadow: var(--shd-low); */
+  box-shadow: -4px 4px 10px -3px rgba(0,0,0,0.1);
   transition: transform var(--t-fast), box-shadow var(--t-fast);
 
 }
 
 .nav-btn:hover{
   transform: translateY(-2px);
-  box-shadow : var(--shd-high);
+  box-shadow: -4px 4px 10px -3px rgba(0,0,0,0.8);
+  /* box-shadow : var(--shd-high); */
   /* background-color: var(--gray-300); */
 }
 
 .nav-btn:active{
   transform: translateY(0);
-  box-shadow: var(--shd-low);
+  box-shadow: -4px 4px 10px -3px rgba(0,0,0,0.1);
+  /* box-shadow: var(--shd-low); */
 }
 
 .nav-btn:not(.is-active):hover {
@@ -316,8 +328,14 @@ body {
 
 .nav-btn.is-active {
   color: var(--color-primary);
+  margin-right: -1px;
   font-weight: 700;
   border-right: none;
+  background-color: var(--color-surface);
+  transform: none !important;
+  box-shadow: none !important;
+  cursor: default;
+
 }
 
 .nav-btn.is-active::after {
@@ -326,15 +344,10 @@ body {
   inset: auto 0 -1px 0;
   height: 2px;
   background-color: var(--color-primary);
+  
 }
 
 
-
-
-.nav-btn .is-active{
-  color: (--primary-500);
-
-}
 .options {
 }
 
