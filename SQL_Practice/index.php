@@ -21,7 +21,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 		</div>
 		
 		<nav class="nav-group">
-			<ul>
+			<ul class="switch-tabs-button">
 				<h2 class="nav-caption">Main options</h2>
 				<li>
 					<button class="nav-btn is-active" 
@@ -46,7 +46,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 		</nav>
 
 		<div class="nav-group only-user is-none">
-			<ul>
+			<ul class="switch-tabs-button">
 				<h2 class="nav-caption">Personal</h2>
 				<li>
 					<button class="nav-btn" data-action="switch" data-target="user_window">
@@ -57,7 +57,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 		</div>
 				<div class="nav-group only-admin is-none">
 			<h2 class="nav-caption">admin</h2>
-			<ul>
+			<ul class="switch-tabs-button" >
 				<li>
 					<button class="nav-btn" data-action="switch" data-target="user_window">
 					</button>

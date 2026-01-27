@@ -148,6 +148,13 @@ html {
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+.logo-box:active strong {
+  color: var(--primary-700);
+  transform: translateY(0px);
+  
+}
+
+
 .nav-list {
   display: flex;
   gap: var(--space-lg);
@@ -164,6 +171,16 @@ html {
 
 .main-nav a:hover {
   color: var(--color-primary);
+}
+
+.auth-box {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  /* margin-left: var(--space-md); */
+  width: 6rem; 
+  /* Это критично: запрещаем хедеру сжимать этот блок */
+  flex-shrink: 0;
 }
 
  .btn-sign-in {
@@ -228,11 +245,11 @@ body {
 .sidebar{
   display: flex;
   flex-direction: column;
-  padding-right: var(--space-lg);
+  /* padding-right: var(--space-xs); */
 
-  background-color: var(--gray-100);
+  background-color:  var(--color-bg);
 
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid var(--gray-300);
 
   transform: translateY(0);
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -243,8 +260,80 @@ body {
   display: flex; 
   flex-direction: column;
 }
+
 .nav-group {
   flex-grow: 1;
+  
+}
+
+.switch-tabs-button{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--gray-100);
+  /* padding-right: var(--space-sm);  */
+  box-sizing: border-box;
+
+}
+
+.nav-btn {
+  color: var(--gray-700);
+  padding: var(--space-sm);
+  font-size: var(--fs-button);
+  font-weight: 500;
+  width: 100%;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  color: var(--color-text-muted);
+  /* transition: color var(--t-fast); */
+  position: relative;
+
+  
+  box-shadow: var(--shd-low);
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
+
+}
+
+.nav-btn:hover{
+  transform: translateY(-2px);
+  box-shadow : var(--shd-high);
+  /* background-color: var(--gray-300); */
+}
+
+.nav-btn:active{
+  transform: translateY(0);
+  box-shadow: var(--shd-low);
+}
+
+.nav-btn:not(.is-active):hover {
+  color: var(--color-primary);
+}
+
+.nav-btn.is-active {
+  color: var(--color-primary);
+  font-weight: 700;
+  border-right: none;
+}
+
+.nav-btn.is-active::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -1px 0;
+  height: 2px;
+  background-color: var(--color-primary);
+}
+
+
+
+
+.nav-btn .is-active{
+  color: (--primary-500);
+
 }
 .options {
 }
@@ -265,8 +354,7 @@ body {
 
 .nav-caption {
 }
-.nav-btn {
-}
+
 .is-active {
 }
 .icon-chart {
@@ -279,12 +367,6 @@ body {
 }
 .only-admin {
 }
-
-
-
-
-
-
 
 /* ================= AUTH OVERLAY ================= */
 .auth-overlay {
@@ -341,6 +423,50 @@ body {
   66% { transform: translate(-3px, -2px); }
   100% { transform: translate(0, 0); }
 }
+
+/* ================= TABS ================= */
+.switch-tabs {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--gray-100);
+  padding-right: var(--space-sm); /* Резервируем место под крестик, чтобы табы под него не заплывали */
+  box-sizing: border-box;
+}
+
+.switch-tabs button {
+  padding: var(--space-sm);
+  font-size: var(--fs-button);
+  font-weight: 500;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  color: var(--color-text-muted);
+  transition: color var(--t-fast);
+  position: relative;
+}
+
+.switch-tabs button:not(.is-active):hover {
+  color: var(--color-primary);
+}
+
+.switch-tabs button.is-active {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.switch-tabs button.is-active::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -1px 0;
+  height: 2px;
+  background-color: var(--color-primary);
+}
+
 /* ================= EXIT BUTTON ================= */
 .btn-exit {
   position: absolute;
@@ -387,10 +513,12 @@ body {
     height: 80%;
     display: block; /* Убираем лишние зазоры */
 }
+
 .btn-exit:hover svg path {
     stroke-width: 3; /* Сделаем крестик жирнее при наведении */
     transition: stroke-width 0.2s ease;
 }
+
 /* ================= CONTENT / FORMS ================= */
 .auth-content {
   display: grid;
@@ -465,48 +593,6 @@ body {
     opacity: 0;
 } */
 
-/* ================= TABS ================= */
-.switch-tabs {
-  display: flex;
-  flex-direction: row; 
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: var(--space-md);
-  border-bottom: 1px solid var(--gray-100);
-  padding-right: 1rem; /* Резервируем место под крестик, чтобы табы под него не заплывали */
-  box-sizing: border-box;
-}
-
-.switch-tabs button {
-  padding: var(--space-sm);
-  font-size: var(--fs-button);
-  font-weight: 500;
-
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  color: var(--color-text-muted);
-  transition: color var(--t-fast);
-  position: relative;
-}
-
-.switch-tabs button:not(.is-active):hover {
-  color: var(--color-primary);
-}
-
-.switch-tabs button.is-active {
-  color: var(--color-primary);
-  font-weight: 700;
-}
-
-.switch-tabs button.is-active::after {
-  content: '';
-  position: absolute;
-  inset: auto 0 -1px 0;
-  height: 2px;
-  background-color: var(--color-primary);
-}
 
 /* ================= SUBMIT BUTTON ================= */
 .btn-submit {
@@ -531,15 +617,6 @@ body {
 .auth-box[data-status="admin"] .btn-admin { display: inline-flex; }  */
 
 
-.auth-box {
-  display: flex; 
-  align-items: center;
-  justify-content: center;
-  /* margin-left: var(--space-md); */
-  width: 6rem; 
-  /* Это критично: запрещаем хедеру сжимать этот блок */
-  flex-shrink: 0;
-}
 
 
 
