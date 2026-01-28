@@ -10,7 +10,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 
 ?>
 
-<div class="content-wrapper" data-status="gest">
+<div class="content-wrapper" data-status="user">
 
 <aside class="sidebar is-none"
 		data-panel="sidebar">
