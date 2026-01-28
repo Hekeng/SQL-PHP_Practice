@@ -10,9 +10,10 @@ require_once TEMPLATES_PATH . '/header.tpl';
 
 ?>
 
-<div class="content-wrapper" data-status="guest">
+<div class="content-wrapper" data-status="gest">
 
-<aside class="sidebar">
+<aside class="sidebar is-none"
+		data-panel="sidebar">
 	<div class="options-navigation">
 		<div class="shortUserInfo">
 			<div class="avatar"></div>
@@ -71,11 +72,12 @@ require_once TEMPLATES_PATH . '/header.tpl';
 			</ul>
 		</div>
 	</div>
-	<div class="options " data-panel="switch-tabs-container">
+	<div class="options" 
+		data-panel="switch-tabs-container">
 		<div class="options-panel" 
 			data-panel="dashboard_view">
 			<h3>Global Settings</h3>
-			<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Et eveniet, ea praesentium totam neque quisquam, modi maxime natus nulla veniam optio eum. Recusandae earum soluta modi iure sapiente exercitationem ducimus.
+			<p> Lorem ipsum dolor sit amet 
 			 </p>
 		</div>
 		<div class="options-panel is-hidden" 
@@ -93,42 +95,44 @@ require_once TEMPLATES_PATH . '/header.tpl';
 
     <main class="main_window">
  
-		<div class="btn-close-sideBar">
-			<button class="sidebar-toggle" data-action="open" data-target="sidebar">
-				<i>
-					<svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<line class="line-top" x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-						<line class="line-mid" x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-						<line class="line-bot" x1="4" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-					</svg>
-				</i>
-				<i>
-					<svg class="icon-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  						<path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
-				</i>
 
-			</button>
-
-
-
-
-		</div>
         <div class="content">
             <div class="guest-content" data-panel="guest_view">
                 <h1>Inflation Indexes</h1>
                 <p>Please Sign In to customize your dashboard.</p>
-				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis sunt quod atque, qui rem est neque voluptate delectus! Et placeat nesciunt architecto labore minus cupiditate soluta eos deleniti facere eaque!
-				Dolorum accusamus reprehenderit iure repudiandae quisquam! Sunt cumque, dolore excepturi ab sit ipsum. Beatae cumque incidunt aspernatur debitis, doloribus a, laborum commodi molestiae ullam, iste reiciendis alias recusandae obcaecati esse.
-				Expedita eveniet fugiat, ut maxime sequi facilis voluptatem pariatur accusantium illo dolore aperiam ipsa, minus laborum optio! Rem ut doloremque laboriosam reiciendis pariatur, expedita porro error quis, aliquid, magni facere!
-				Dolor quisquam vero tenetur adipisci explicabo distinctio non animi corrupti dolorum? Adipisci ipsum aspernatur, quasi nobis consequuntur error at consectetur? Nulla dolore, earum ipsam odio iure explicabo culpa voluptatum fuga!
-				Saepe, voluptatem. Repellendus temporibus impedit consequuntur animi tempore. Voluptatum, velit tempora asperiores enim impedit facere ad. Et dolores delectus voluptatum vero. Eveniet aperiam magni numquam blanditiis dignissimos nihil facilis ipsam.
-				Quos ab et enim vel soluta maxime adipisci sequi quae nesciunt, saepe repellat consequatur reiciendis. Qui voluptatem est nostrum cum libero soluta, possimus, quae totam ratione nam repudiandae aspernatur doloribus.
-				Necessitatibus temporibus tempora expedita est nobis minus deserunt culpa sint dicta repellat at, libero provident ducimus deleniti fugit labore? Laboriosam dolorem ducimus sit similique necessitatibus quod aliquid voluptatum amet dignissimos.
-				Perspiciatis maiores ratione, pariatur explicabo fuga ea aperiam, nostrum alias reprehenderit amet fugit dolor laboriosam iure exercitationem quod labore dolore vel, voluptates iste dicta minima laborum numquam harum repellendus. Libero!
-				Maxime vel unde voluptatibus ipsum enim molestiae consequatur sapiente, consequuntur, eos at beatae tempora perferendis? Est fuga nemo similique molestiae voluptas accusamus obcaecati dolor, exercitationem porro assumenda laborum voluptates ratione.
-				Nihil animi dolor laborum repellat amet maiores recusandae sed, fuga numquam velit saepe odit quod consequuntur quia sequi, impedit, veritatis error temporibus minima laboriosam? Omnis tempora placeat voluptatibus rerum atque?</p>
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis sunt quod atque, qui rem est neque voluptate delectus! Et placeat nesciunt architecto labore minus cupiditate soluta eos deleniti facere eaque!tetur? Nulla dolore, earum ipsam odio iure explicabo culpa voluptatum fuga!
+				tempora placeat voluptatibus rerum atque?</p>
             </div>
+
+			<div class="sidebar-control-panel">
+				<button class="sidebar-toggle btn-burger is-active" 
+						data-action="open" 
+						data-target="sidebar">
+					<svg class="icon-design icon-menu" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<line class="line-top" x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+						<line class="line-mid" x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+						<line class="line-bot" x1="4" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+					</svg>
+				</button>
+				
+				
+				<button class="sidebar-toggle btn-schevrone is-hidden" 
+						data-action="switch" 
+						data-target="switch-tabs-container">
+				<svg class="icon-design icon-chevron" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+				<path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+				</button>
+
+				<button class="sidebar-toggle btn-kros is-hidden" 
+						data-action="close" 
+						data-target="sidebar">
+					<svg class="icon-design icon-close" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</button>
+			</div>
+
 		
 				<!-- is-none -->
 

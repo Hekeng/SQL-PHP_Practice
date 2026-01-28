@@ -34,22 +34,22 @@ html {
 
 /* ================= SHADOW ================= */
 /* Почти плоская тень для обычных кнопок */
---shd-flat: -2px 2px 4px rgba(0,0,0,0.05);
+--shd-flat: -2px 2px 4px rgba(0,0,0,0.1);
 
 /* Твоя рабочая тень для сайдбара (левая) */
---shd-low: -4px 4px 12px -3px rgba(0,0,0,0.1);
+--shd-low: -4px 4px 12px -3px rgba(0,0,0,0.2);
 
 /* Тень при наведении (Hover) — "взлет" */
---shd-medium: -6px 8px 20px -5px rgba(0,0,0,0.15);
+--shd-medium: -6px 8px 20px -5px rgba(0,0,0,0.3);
 
 /* Тень для модалок (High) — очень глубокая */
---shd-high: 0 12px 30px -10px rgba(0,0,0,0.3);
+--shd-high: 0 12px 30px -10px rgba(0,0,0,0.4);
 
   /* ================= PALETTE ================= */
   /* ---------------- ОСНОВНОЙ ЦВЕТ primary ----------------   */
   --primary-100: #d0e4e3;/* Для мягких подсветок фоны карточек, hover */
   --primary-500: #0ea5e9;/* Главный цвет: лого, активные элементы */
-  --primary-700: #025d57;/* Темнее для наведения (hover) */
+  --primary-700: #0369a1;/* Темнее для наведения (hover) */
 
   /* ---------------- АКЦЕНТ / КНОПКИ  ---------------- */
   --accent-100: #f9e8d4;/* легкий фон/hover на карточках */
@@ -111,7 +111,7 @@ html {
 }
 
 .btn:active{
-    transform: translateY(0);
+  transform: translateY(0);
   box-shadow: var(--shd-low);
 }
 
@@ -244,9 +244,11 @@ body {
 .main_window{
   overflow-y: auto; 
   height: 100%;
+  
 }
 
 .content {
+  position: relative;
   padding: var(--space-md) var(--space-lg);
 }
 
@@ -378,6 +380,7 @@ body {
 }
 
 .options-panel{
+  /* position: absolute; */
   grid-area: 1 / 1;
   opacity: 1;
   transition: opacity 0.4s ease-in-out;
@@ -414,8 +417,119 @@ body {
 .only-admin {
 }
 
+/* ================= sidebar-control-panel ================= */
+.sidebar-control-panel {
+  position: absolute;
+  bottom: var(--space-md); /* Отступ снизу */
+  left: var(--space-md);   /* Отступ слева */
+  display: grid;
+  grid-template-columns: 1fr;
+  /* animation: float 4s ease-in-out infinite; */
+
+}
+
 .sidebar-toggle {
-  background-color: var(--accent-500); /* Твой оранжевый */
+  display: none; 
+
+  width: auto;
+  min-width: 1rem;
+  max-width: 5rem; 
+  
+  height: auto;
+  min-height: 1rem; 
+  max-height: 5rem;
+  padding: 0.5rem;
+
+  border: none;
+  border-radius: 50%;
+
+  box-shadow: var(--shd-low);
+
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
+  background-color: var(--accent-500);
+  color: var(--color-surface);
+ 
+}
+/* .sidebar-toggle.is-active {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+[data-status="user"] .sidebar-toggle {
+    display: flex;
+    /* Кнопка активна, так как гость видит форму */
+} 
+
+/* .sidebar:not(.is-none) .options:not(.is-active) ~ .content .btn-next {
+    display: flex;
+} */
+
+/* .sidebar:not(.is-none) .options:not(.is-active) ~ .sidebar-toggle {
+    display: none;
+} */
+
+
+
+.icon-design {
+  width: 100%; 
+  height: 100%;
+  fill: none;
+
+}
+
+.btn-kros {
+  grid-area: 1 / 1;
+  transition: opacity 0.3s ease;
+}
+
+.btn-burger {
+  grid-area: 1 / 1;
+  transition: opacity 0.3s ease;
+}
+
+.btn-schevrone {
+  grid-area: 1 / 1;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+  transform: translateY(-2px);
+  background-color: var(--color-accent-hover);
+  box-shadow: var(--shd-high);
+}
+
+.sidebar-toggle:active {
+  transform: translateY(0px);
+   background-color: var(--color-accent-hover);
+  /* box-shadow: var(--shd-high); */
+}
+
+.icon-chevron {
+  transform: translateX(-1px);
+}
+
+
+.icon-close {
+}
+
+.icon-menu {
+}
+.line-top {
+}
+.line-mid {
+}
+.line-bot {
+}
+
+
+
+
+
+
+
+.sidebar-toggle {
+  /* background-color: var(--accent-500);
   color: #ffffff;
   border: none;
   border-radius: var(--br-md);
@@ -424,25 +538,25 @@ body {
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  transition: background-color var(--t-fast);
+  transition: background-color var(--t-fast); */
 }
 
 .sidebar-toggle:hover {
-  background-color: var(--accent-700);
+  /* background-color: var(--accent-700); */
 }
 
 /* Скрываем шеврон по умолчанию */
 .sidebar-toggle .icon-chevron {
-  display: none;
+  /* display: none; */
 }
 
 /* При ховере прячем сэндвич и показываем шеврон */
 .sidebar-toggle:hover .icon-menu {
-  display: none;
+  /* display: none; */
 }
 
 .sidebar-toggle:hover .icon-chevron {
-  display: block;
+  /* display: block; */
 }
 
 /* ================= AUTH OVERLAY ================= */
@@ -474,13 +588,9 @@ body {
   display: flex;
   flex-direction: column;
 
-  /* width: min(100%, 24rem); */
-  padding: var(--space-lg);/*слабое место сильно раздувает карточку*/
+  padding: var(--space-lg);
   width: fit-content;
-  /* width: 100%; */
-  /* max-width: calc(100% - 20px);*/
   min-width: 18rem;
-  /* width: clamp(18rem, 40vw, 32rem); */
 
   background-color: var(--color-bg);
   border-radius: var(--br-md);
@@ -492,11 +602,13 @@ body {
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   animation: float 4s ease-in-out infinite;
+
+  z-index: 1000;
 }
 
 @keyframes float {
   0% { transform: translate(0, 0); }
-  33% { transform: translate(3px, -4px); }
+  33% { transform: translate(3px, -2px); }
   66% { transform: translate(-3px, -2px); }
   100% { transform: translate(0, 0); }
 }
@@ -600,7 +712,6 @@ body {
 .auth-content {
   display: grid;
   grid-template-columns: 1fr;
-  /* width: 100%; */
 }
 
 .auth-form-login{
