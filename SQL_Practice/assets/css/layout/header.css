@@ -1,0 +1,100 @@
+/*HEADER*/
+.main-header {
+  /* position: fixed; */
+  position: sticky;
+  inset: 0 0 auto 0;
+  z-index: 90;
+  background-color: var(--primary-700);
+  border-bottom: 1px solid var(--gray-300);
+}
+
+
+.header-container {
+  max-width: 90rem; /* ≈1440px */
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.logo-box {
+  display: flex;
+  
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.logo-box strong {
+  color: var(--primary-500);
+  transition: transform var(--t-fast);
+  
+}
+
+.logo-box:hover strong {
+  color: var(--accent-500);
+  transform: translateY(-2px);
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.logo-box:active strong {
+  color: var(--accent-500);
+  transform: translateY(0px);
+  
+}
+
+
+.nav-list {
+  display: flex;
+  gap: var(--space-lg);
+  flex-wrap: wrap; /* Если ссылок много, они выстроятся в 2 ряда вместо наплыва */
+  justify-content: center;
+}
+
+.main-nav a {
+  font-size: var(--fs-base);
+  font-weight: 500;
+  color: var(--color-text-main);
+  transition: color var(--t-fast);
+}
+
+.main-nav a:hover {
+  color: var(--color-primary);
+}
+
+.auth-box {
+
+  display: flex; 
+  /* display: none; */
+  align-items: center;
+  justify-content: center;
+  /* margin-left: var(--space-md); */
+  width: 6rem; 
+  /* Это критично: запрещаем хедеру сжимать этот блок */
+  flex-shrink: 0;
+}
+
+ .btn-sign-in {
+  display: none;
+  padding: var(--space-xs) var(--space-md);
+}
+
+.btn-profile {
+  display: none;
+  padding: var(--space-sm) var(--space-sm);
+  
+  width: 2.3rem;
+  height: 2.3rem; 
+}
+
+.btn-admin{
+  display: none;
+  padding: var(--space-sm) var(--space-sm);
+  width: 2.3rem;
+  height: 2.3rem; 
+
+}

@@ -12,7 +12,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 
 <div class="content-wrapper" data-status="user">
 
-<aside class="sidebar is-none"
+<aside class="sidebar"
 		data-panel="sidebar">
 	<div class="options-navigation">
 		<div class="shortUserInfo">
@@ -80,12 +80,12 @@ require_once TEMPLATES_PATH . '/header.tpl';
 			<p> Lorem ipsum dolor sit amet 
 			 </p>
 		</div>
-		<div class="options-panel is-hidden" 
+		<div class="options-panel " 
 				data-panel="first_index">
 			<h3>First Index</h3>
 			<input type="number">
 		</div>
-			<div class="options-panel is-hidden" 
+			<div class="options-panel" 
 				data-panel="second_index">
 			<h3>Second Index</h3>
 			<input type="number">
@@ -105,7 +105,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
             </div>
 
 			<div class="sidebar-control-panel">
-				<button class="sidebar-toggle btn-burger is-active" 
+				<button class="sidebar-toggle btn-burger" 
 						data-action="open" 
 						data-target="sidebar">
 					<svg class="icon-design icon-menu" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -116,7 +116,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 				</button>
 				
 				
-				<button class="sidebar-toggle btn-schevrone is-hidden" 
+				<button class="sidebar-toggle btn-schevrone" 
 						data-action="switch" 
 						data-target="switch-tabs-container">
 				<svg class="icon-design icon-chevron" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -124,7 +124,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 				</svg>
 				</button>
 
-				<button class="sidebar-toggle btn-kros is-hidden" 
+				<button class="sidebar-toggle btn-kros" 
 						data-action="close" 
 						data-target="sidebar">
 					<svg class="icon-design icon-close" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -136,17 +136,18 @@ require_once TEMPLATES_PATH . '/header.tpl';
 		
 				<!-- is-none -->
 
-		<div class="auth-overlay is-none" data-panel="auth-overlay"> 
+		<div class="auth-overlay" 
+				data-panel="auth-overlay"> 
 			<div class="auth-backdrop" 
-				data-action="close" 
-				data-target="auth-overlay">
+				data-action="closeAuthOverlay"
+				data-value="closed">
    			 </div>
 			<div class="auth-card">
 				<button 
 					type="button" 
 					class="btn-exit" 
-					data-action="close"
-					data-target="auth-overlay">
+					data-action="closeAuthOverlay"
+					data-value="closed">
 					<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 					</svg>
@@ -154,20 +155,20 @@ require_once TEMPLATES_PATH . '/header.tpl';
 				
 				<ul class="switch-tabs" data-panel="switch-tabs-container">
 					<li>
-						<button class="auth-tab is-active"
+						<button class="auth-tab auth-tab-auth"
 								role="heading" 
         						aria-level="2" 
-								data-action="switch" 
-								data-target="form-login"
+								data-action="switchAuthTab"
+								data-value="registration"
 								type="button">
 							Authorization
 						</button>
 					<li>
-						<button class="auth-tab" 
+						<button class="auth-tab auth-tab-reg" 
 								role="heading" 
         						aria-level="2" 
-								data-action="switch" 
-								data-target="form-reg" 
+								data-action="switchAuthTab"
+								data-value="authorization"
 								type="button">
 							Registration
 						</button>

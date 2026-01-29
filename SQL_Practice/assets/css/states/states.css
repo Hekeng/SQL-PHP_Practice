@@ -1,0 +1,100 @@
+    /* data-authStatus="guest"
+    data-authOverlay = "closed"
+    data-authOverlaytab = "login"
+    data-sidebarStatus = "closed"
+    data-sidebarNavButtonsStatus = "open"
+    data-sidebarDashboardStatus = "closed" */
+
+/* Показываем нужное */
+/* body[data-authStatus="guest"] .auth-box {
+    display: flex;
+} */
+/* body[data-authStatus="guest"] .btn-sign-in  */
+
+body[data-auth-status="guest"] .btn-sign-in {
+    display: inline-flex;
+}
+body[data-auth-status="user"] .btn-profile {
+    display: inline-flex;
+}
+body[data-auth-status="admin"] .btn-admin {
+    display: inline-flex;
+}
+
+body[data-auth-overlay="open"] .auth-overlay {
+    display: inline-flex;
+}
+
+body[data-auth-overlay-tab="authorization"] .auth-tab-reg {
+	opacity: 0;
+  	pointer-events: none;
+  	visibility: hidden;
+}
+
+body[data-auth-overlay-tab="registration"] .auth-tab-auth {
+	opacity: 0;
+  	pointer-events: none;
+  	visibility: hidden;
+}
+
+
+/* body[data-authStatus="guest"] .auth-overlay {
+    display: flex;
+} */
+
+/* body[data-authStatus="guest"] .auth-overlay {
+    display: none;
+} */
+/* Кнопка активна, так как гость видит форму */
+/* [data-status="user"] .sidebar-toggle {
+    display: flex;
+    
+}  */
+/* body[data-authStatu="guest"] .sidebar-control-panel {
+    display: none;
+} */
+
+
+
+/* 
+body[data-sidebar="open"] .sidebar {
+    display: flex;
+} */
+
+/* body[data-auth-overlay="open"] .auth-overlay {
+    display: flex;
+} */
+
+/* body[data-auth-tab="login"] .auth-form-login {
+    display: block;
+} */
+
+/* body[data-auth-tab="registration"] .auth-form-reg {
+    display: block;
+} */
+
+
+
+
+
+
+/* 
+body[data-auth="guest"] .sidebar {
+    display: none;
+}
+
+body[data-sidebar="open"] .sidebar {
+    display: block;
+}
+
+body[data-auth-overlay="open"] .auth-overlay {
+    display: flex;
+}
+
+body[data-auth-tab="login"] .auth-form-login {
+    display: block;
+}
+
+body[data-auth-tab="registration"] .auth-form-reg {
+    display: block;
+} */

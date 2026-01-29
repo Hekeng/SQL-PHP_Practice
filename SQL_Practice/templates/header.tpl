@@ -5,10 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Proba</title>
 <?php 
-	add_css('reset'); 
-	add_css('style'); 
+	// add_css('reset'); 
+	add_css('main'); 
 
-	add_js('script');
+	// add_js('script');
+
+ add_js('main');
 	
 	
 ?>
@@ -16,7 +18,16 @@
 
 </head>
 
-<body data-status="guest">
+<body 
+    
+    data-auth-status="guest"
+    data-auth-overlay="closed"
+    data-auth-overlay-tab="authorization"
+    data-sidebar-status="closed"
+    data-sidebar-nav-buttons-status="open"
+    data-sidebar-dashboard-status="closed">
+    
+    >
 
 <header class="main-header">
   <div class="header-container">
@@ -35,15 +46,16 @@
 
     <div class="auth-box">
 		<button class="btn btn-sign-in"  
-				data-action="open" 
-				data-target="auth-overlay">Sign In</button>
+				data-action="openAuthOverlay" 
+				data-value="open"
+        >Sign In</button>
 		<button class="btn btn-profile" 
-				data-action="open" 
-				data-target="user-menu"></button>
+				data-action="" 
+				data-value=""></button>
 		<button class="btn btn-admin" 
-				data-action="link" 
-				data-target="admin-menu"></button>
-	</div>
+				data-action="" 
+				data-value=""></button>
+	  </div>
       
       <!-- <button
          

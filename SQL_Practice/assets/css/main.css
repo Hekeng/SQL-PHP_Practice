@@ -1,0 +1,138 @@
+@import "base/reset.css";
+@import "base/config.css";
+
+@import "components/modals.css";
+
+@import "components/buttons.css";
+@import "states/states.css";
+@import "layout/header.css";
+@import "layout/sidebar.css";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
+
+
+/* визуализация блоков удалить */
+* {
+	/* outline: 1px solid #DE0C35;
+	border: 1px solid red; */
+}
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap'); */
+
+
+
+/*BODY*/
+
+.nav-link, .logo-box, .btn-sign-in {
+  white-space: nowrap; 
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100vh;
+  /* min-height: 100vh; */
+  font-family: var(--font-main);
+  font-size: var(--fs-base);
+  line-height: 1.5;
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+}
+
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  min-height: 0;
+  flex-grow: 1; 
+  overflow: hidden;
+}
+
+.main_window {
+  overflow-y: auto; 
+  height: 100%;
+  
+}
+
+.content {
+  position: relative;
+  padding: var(--space-md) var(--space-lg);
+}
+
+
+
+/* ================= Status buttons ================= */
+/* .auth-box .btn-sign-in, 
+.auth-box .btn-profile, 
+.auth-box .btn-admin { 
+  display: none; 
+}
+
+
+.auth-box[data-status="guest"] .btn-sign-in { display: inline-flex; }
+
+
+.auth-box[data-status="user"] .btn-profile { display: inline-flex; }
+
+
+.auth-box[data-status="admin"] .btn-admin { display: inline-flex; }  */
+
+
+
+
+
+
+
+
+
+
+
+/* 
+body[data-status="guest"] .btn-sign-in { display: inline-block; }
+
+body[data-status="guest"] .btn-profile { display: none; }
+
+body[data-status="guest"] .btn-admin { display: none; }
+
+
+
+body[data-status="user"] .btn-sign-in { display: none; }
+
+body[data-status="user"] .btn-profile { display: inline-block; }
+
+body[data-status="user"] .btn-admin { display: none; }
+
+
+
+body[data-status="admin"] .btn-sign-in { display: none; }
+
+body[data-status="admin"] .btn-profile { display: none; }
+
+body[data-status="admin"] .btn-admin { display: inline-block; } */
+
+
+
+
+
+/* ================= VISIBILITY ================= */
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.is-none {
+  display: none !important;
+}
+
+
+
+/* Для Инпутов (Поля ввода):
+
+Убери стандартные рамки: border: 1px solid var(--gray-300).
+
+Добавь transition: border-color 0.3s.
+
+При focus (когда кликаешь в поле) меняй цвет рамки на наш Teal (--color-primary-500). */
