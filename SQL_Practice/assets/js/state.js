@@ -9,7 +9,7 @@ export const appState = {
     auth: {
         authStatus: 'guest',      			// guest | user | admin
         authOverlay: 'closed',    			// open | closed
-		authOverlaytab: 'authorization'    	// authorization | registration
+		authOverlayTab: 'authorization'    	// authorization | registration
     },
 
 	content:{
@@ -19,7 +19,8 @@ export const appState = {
 	sidebar: {
 			sidebarStatus: false,  	
 			sidebarNavButtonsStatus: 'open',	//open | closed
-			sidebarDashboardStatus: 'closed' 	//open | closed
+			sidebarDashboardStatus: 'closed',  	//open | closed
+			tabButtons: ''						//null | settings | firstIndex | secondIndex
     },
 
 	footer:{

@@ -37,6 +37,7 @@
   display: grid;
   grid-template-columns: 1fr;
   /* animation: float 4s ease-in-out infinite; */
+  z-index: 1000;
 
 }
 

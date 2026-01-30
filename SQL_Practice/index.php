@@ -4,13 +4,10 @@ require_once __DIR__ . '/config.php';
 require_once INCLUDES_PATH . '/helpers.php';
 require_once TEMPLATES_PATH . '/header.tpl';
 
-// echo "<br>";
-
-
 
 ?>
 
-<div class="content-wrapper" data-status="user">
+<div class="content-wrapper">
 
 <aside class="sidebar"
 		data-panel="sidebar">
@@ -21,31 +18,28 @@ require_once TEMPLATES_PATH . '/header.tpl';
 			<div class="userE-mail"></div>
 		</div>
 		
-		<nav class="nav-group"
-				>
+		<nav class="nav-group">
 			<h2 class="nav-caption">Main options</h2>
-			<ul class="switch-tabs-button"
-				data-panel="switch-tabs-container">
-				
+			<ul class="switch-tabs-button">
 				<li>
-					<button class="nav-btn" 
-							data-action="switch" 
-							data-target="dashboard_view">
-						<i class="icon-options"></i> Global Settings
+					<button class="nav-btn settings" 
+							data-action="switchTabButtons" 
+							data-value="settings">
+						<i class="icon-options"></i> Settings
 					</button>
 				</li>
 				<li>
-					<button class="nav-btn" 
-							data-action="switch" 
-							data-target="first_index">
+					<button class="nav-btn firstIndex" 
+							data-action="switchTabButtons" 
+							data-value="firstIndex">
 						<i class="icon-FirstIndex"></i> First Index
 					</button>
 				</li>
 								<li>
-					<button class="nav-btn" 
-							data-action="switch" 
-							data-target="second_index">
-						<i class="icon-FirstIndex""></i> Second Index
+					<button class="nav-btn secondIndex" 
+							data-action="switchTabButtons" 
+							data-value="secondIndex">
+						<i class="icon-FirstIndex"></i> Second Index
 					</button>
 				</li>
 			</ul>
@@ -62,7 +56,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 				</li>
 			</ul>
 		</div>
-			<div class="nav-group only-admin is-none">
+		<div class="nav-group only-admin is-none">
 			<h2 class="nav-caption">admin</h2>
 			<ul class="switch-tabs-button" >
 				<li>
@@ -72,10 +66,9 @@ require_once TEMPLATES_PATH . '/header.tpl';
 			</ul>
 		</div>
 	</div>
-	<div class="options" 
-		data-panel="switch-tabs-container">
+	<div class="options">
 		<div class="options-panel" 
-			data-panel="dashboard_view">
+			data-panel="settings">
 			<h3>Global Settings</h3>
 			<p> Lorem ipsum dolor sit amet 
 			 </p>
@@ -95,7 +88,6 @@ require_once TEMPLATES_PATH . '/header.tpl';
 
     <main class="main_window">
  
-
         <div class="content">
             <div class="guest-content" data-panel="guest_view">
                 <h1>Inflation Indexes</h1>
@@ -104,37 +96,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 				tempora placeat voluptatibus rerum atque?</p>
             </div>
 
-			<div class="sidebar-control-panel">
-				<button class="sidebar-toggle btn-burger" 
-						data-action="open" 
-						data-target="sidebar">
-					<svg class="icon-design icon-menu" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-						<line class="line-top" x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-						<line class="line-mid" x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-						<line class="line-bot" x1="4" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-					</svg>
-				</button>
-				
-				
-				<button class="sidebar-toggle btn-schevrone" 
-						data-action="switch" 
-						data-target="switch-tabs-container">
-				<svg class="icon-design icon-chevron" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-				<path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-				</svg>
-				</button>
 
-				<button class="sidebar-toggle btn-kros" 
-						data-action="close" 
-						data-target="sidebar">
-					<svg class="icon-design icon-close" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-						<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
-				</button>
-			</div>
-
-		
-				<!-- is-none -->
 
 		<div class="auth-overlay" 
 				data-panel="auth-overlay"> 
@@ -159,7 +121,7 @@ require_once TEMPLATES_PATH . '/header.tpl';
 								role="heading" 
         						aria-level="2" 
 								data-action="switchAuthTab"
-								data-value="registration"
+								data-value="authorization"
 								type="button">
 							Authorization
 						</button>
@@ -168,25 +130,19 @@ require_once TEMPLATES_PATH . '/header.tpl';
 								role="heading" 
         						aria-level="2" 
 								data-action="switchAuthTab"
-								data-value="authorization"
+								data-value="registration"
 								type="button">
 							Registration
 						</button>
 					</li>
 				</ul>
-				<!-- <div class="info-to-do">
-					<h2>Wellkome!</h2>
-					<p>Please log in</p>
-				</div> -->
 				
 				<div class="auth-content">
 					<form class="auth-form-login " 
-							data-panel="form-login"
-							data-form="auth"
-							data-action="close"
-							data-target="auth-overlay"
 							id="auth_form_login"
 							name="auth_form_login" 
+							data-action="loginAsUser"
+							data-value="user"
 							action="" 
 							method="post">
 						<h2 class="sr-only">Authorization Form</h2>
@@ -206,20 +162,14 @@ require_once TEMPLATES_PATH . '/header.tpl';
 						<span class="error-text"></span>
 						<div class="auth-spacer"></div>
 						<button class="btn btn-submit"
-
-								
-								
 								type="submit">Send</button>			
 					</form>
 
-					<form class="auth-form-reg is-hidden" 
-						data-panel="form-reg" 
-						data-form="auth"
-						data-action="close"
-						data-target="auth-overlay"
+					<form class="auth-form-reg" 
 						name="reg_window" 
 						id="reg_window" 
-						action="" 
+						data-action="loginAsUser"
+						data-value="user"
 						method="post">
 						<h2 class="sr-only">Registration Form</h2>
 						<label for="new_user_login">E-mail</label>
@@ -277,9 +227,38 @@ require_once TEMPLATES_PATH . '/header.tpl';
                 <h2>Admin Control Panel</h2>
                 <p>System status: OK</p>
                 </div>
+
+
+							<div class="sidebar-control-panel">
+				<button class="sidebar-toggle btn-burger" 
+						data-action="toggleSidebar" 
+						data-value="">
+					<svg class="icon-design icon-menu" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<line class="line-top" x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+						<line class="line-mid" x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+						<line class="line-bot" x1="4" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+					</svg>
+				</button>
+
+				<button class="sidebar-toggle btn-schevrone" 
+						data-action="switch" 
+						data-target="switch-tabs-container">
+				<svg class="icon-design icon-chevron" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+				<path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+				</button>
+
+				<button class="sidebar-toggle btn-kros" 
+						data-action="toggleSidebar" 
+						data-value="">
+					<svg class="icon-design icon-close" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</button>
+			</div>
         </div>
     </main>
-</div>
+
 </div>
 <?php
 	require_once TEMPLATES_PATH . '/footer.tpl';

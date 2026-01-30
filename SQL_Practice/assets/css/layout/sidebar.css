@@ -109,7 +109,8 @@
   grid-template-columns: 1fr;
   border-right: 1px solid var(--gray-300);
   max-width: 0;
-  width: 20rem;
+  width: max-content;
+  /* width: 20rem; */
   overflow: hidden;
   width: auto;
   transition: max-width 0.4s; 
@@ -120,12 +121,15 @@
 }
 
 .options-panel.is-hidden {
-  opacity: 0;
-  pointer-events: none;
+  /* opacity: 0;
+  pointer-events: none; */
  
 }
 
 .options-panel{
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
   /* position: absolute; */
   grid-area: 1 / 1;
   opacity: 1;

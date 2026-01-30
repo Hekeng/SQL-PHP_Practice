@@ -24,10 +24,13 @@
     data-auth-overlay="closed"
     data-auth-overlay-tab="authorization"
     data-sidebar-status="closed"
+    data-switch-tab-buttons = ""
+    data-sidebar-dashboard-status="closed"
+
     data-sidebar-nav-buttons-status="open"
-    data-sidebar-dashboard-status="closed">
-    
     >
+    
+    
 
 <header class="main-header">
   <div class="header-container">

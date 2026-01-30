@@ -25,17 +25,137 @@ body[data-auth-overlay="open"] .auth-overlay {
     display: inline-flex;
 }
 
-body[data-auth-overlay-tab="authorization"] .auth-tab-reg {
-	opacity: 0;
-  	pointer-events: none;
-  	visibility: hidden;
+body[data-auth-overlay-tab="authorization"] .auth-tab-auth {
+    color: var(--color-primary);
+    font-weight: 700;
 }
 
-body[data-auth-overlay-tab="registration"] .auth-tab-auth {
-	opacity: 0;
-  	pointer-events: none;
-  	visibility: hidden;
+body[data-auth-overlay-tab="registration"]  .auth-tab-reg {
+    color: var(--color-primary);
+    font-weight: 700;
 }
+
+body[data-auth-overlay-tab="authorization"] .auth-tab-auth::after{
+    content: '';
+    position: absolute;
+    inset: auto 0 -1px 0;
+    height: 2px;
+    background-color: var(--color-primary);
+}
+
+body[data-auth-overlay-tab="registration"]  .auth-tab-reg::after  {
+    content: '';
+    position: absolute;
+    inset: auto 0 -1px 0;
+    height: 2px;
+    background-color: var(--color-primary);
+}
+
+
+body[data-auth-overlay-tab="registration"] .auth-form-login {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+body[data-auth-overlay-tab="authorization"] .auth-form-reg {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+body[data-sidebar-status="open"] .sidebar {
+    display: flex;
+}
+
+body:is([data-auth-status="user"], [data-auth-status="admin"]) .sidebar-control-panel {
+  display: grid;
+}
+
+body[data-sidebar-status="open"] .sidebar-control-panel {
+    display: grid;
+}
+
+body[data-sidebar-status="open"] .btn-kros {
+    transition: transform var(--t-fast) ease; /* Плавность */
+    /* transform: rotate(180deg); */
+    display: inline-flex;
+}
+
+body[data-auth-status="user"][data-sidebar-status="closed"] .sidebar-control-panel,
+body[data-auth-status="admin"][data-sidebar-status="closed"] .sidebar-control-panel {
+    transition: transform var(--t-fast) ease;
+    display: inline-flex;
+}
+
+body[data-auth-status="user"][data-sidebar-status="closed"] .btn-burger,
+body[data-auth-status="admin"][data-sidebar-status="closed"] .btn-burger {
+    transition: transform var(--t-fast) ease;
+    display: inline-flex;
+}
+
+
+body[data-switch-tab-buttons="settings"] .settings,
+body[data-switch-tab-buttons="firstIndex"] .firstIndex,
+body[data-switch-tab-buttons="secondIndex"] .secondIndex {
+    color: var(--color-primary);
+    margin-right: -1px;
+    font-weight: 700;
+    border-right: none;
+    background-color: var(--color-surface);
+    transform: none !important;
+    box-shadow: none !important;
+    cursor: default;
+}
+
+body[data-switch-tab-buttons="settings"] .settings::after,
+body[data-switch-tab-buttons="firstIndex"] .firstIndex::after,
+body[data-switch-tab-buttons="secondIndex"] .secondIndex::after{
+    content: '';
+    position: absolute;
+    inset: auto 0 -1px 0;
+    height: 2px;
+    background-color: var(--color-primary);
+}
+
+body:not([data-switch-tab-buttons=""]) .options {
+  max-width: 50rem; 
+
+}
+
+body[data-switch-tab-buttons="settings"] [data-panel="settings"],
+body[data-switch-tab-buttons="firstIndex"] [data-panel="first_index"],
+body[data-switch-tab-buttons="secondIndex"] [data-panel="second_index"] {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+/* body[data-switch-tab-buttons="firstIndex"][data-sidebar-status="open"] .firstIndex {
+  color: var(--color-primary);
+  margin-right: -1px;
+  font-weight: 700;
+  border-right: none;
+  background-color: var(--color-surface);
+  transform: none !important;
+  box-shadow: none !important;
+  cursor: default;
+}
+body[data-switch-tab-buttons="secondIndex"][data-sidebar-status="open"] .secondIndex {
+  color: var(--color-primary);
+  margin-right: -1px;
+  font-weight: 700;
+  border-right: none;
+  background-color: var(--color-surface);
+  transform: none !important;
+  box-shadow: none !important;
+  cursor: default;
+} */
+
+/* body[data-switch-tab-buttons="registration"]  .auth-tab-reg {
+  color: var(--color-primary);
+  font-weight: 700;
+} */
 
 
 /* body[data-authStatus="guest"] .auth-overlay {
