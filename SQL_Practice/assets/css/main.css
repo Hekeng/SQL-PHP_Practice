@@ -57,10 +57,17 @@ body {
 }
 
 .content {
+  display: flex;
   position: relative;
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-md) var(--space-md);
+  flex-direction: column; /* Элементы встают друг под друга */
+  min-height: 100vh;
 }
 
+.auth-spacer {
+  flex-grow: 1; /* Забирает всё свободное пространство */
+  min-height: var(--space-md);
+}
 
 
 /* ================= Status buttons ================= */

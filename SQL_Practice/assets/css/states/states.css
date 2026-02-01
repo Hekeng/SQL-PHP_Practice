@@ -77,9 +77,8 @@ body[data-sidebar-status="open"] .sidebar-control-panel {
 }
 
 body[data-sidebar-status="open"] .btn-kros {
-    transition: transform var(--t-fast) ease; /* Плавность */
-    /* transform: rotate(180deg); */
-    display: inline-flex;
+
+    display: grid;
 }
 
 body[data-auth-status="user"][data-sidebar-status="closed"] .sidebar-control-panel,
@@ -105,7 +104,7 @@ body[data-switch-tab-buttons="secondIndex"] .secondIndex {
     background-color: var(--color-surface);
     transform: none !important;
     box-shadow: none !important;
-    cursor: default;
+    /* cursor: default; */
 }
 
 body[data-switch-tab-buttons="settings"] .settings::after,
@@ -118,10 +117,16 @@ body[data-switch-tab-buttons="secondIndex"] .secondIndex::after{
     background-color: var(--color-primary);
 }
 
-body:not([data-switch-tab-buttons=""]) .options {
+/* body:not([data-switch-tab-buttons=""]) .options {
   max-width: 50rem; 
 
+} */
+
+body[data-sidebar-dashboard-status="open"] .options {
+    width: 100%;
+    max-width: 50rem; 
 }
+
 
 body[data-switch-tab-buttons="settings"] [data-panel="settings"],
 body[data-switch-tab-buttons="firstIndex"] [data-panel="first_index"],
@@ -129,6 +134,20 @@ body[data-switch-tab-buttons="secondIndex"] [data-panel="second_index"] {
   opacity: 1;
   visibility: visible;
   z-index: 1;
+}
+
+body[data-sidebar-dashboard-status="open"] .btn-kros {
+    display: none;
+}
+
+body[data-sidebar-dashboard-status="open"] .btn-schevrone {
+    transition: transform var(--t-fast) ease; /* Плавность */
+    /* transform: rotate(180deg); */
+    display: grid;
+}
+
+body[data-sidebar-dashboard-status="closed"] .btn-schevrone {
+    display: none;
 }
 
 /* body[data-switch-tab-buttons="firstIndex"][data-sidebar-status="open"] .firstIndex {

@@ -13,9 +13,6 @@ export const panelActions = {
 
 	switchAuthTab(tabName) {
 		appState.auth.authOverlayTab = tabName; 
-
-            
-    // console.log(value);
     },
 
     loginAsUser() {
@@ -23,22 +20,43 @@ export const panelActions = {
         appState.auth.authStatus= 'user';
         appState.auth.authOverlay = 'closed';
 		appState.sidebar.sidebarStatus = true;
-        // appState.sidebar.sidebarStatus = "closed";
+;
     },
 
     toggleSidebar() {
 		appState.sidebar.sidebarStatus = !appState.sidebar.sidebarStatus;
+ 
         console.log('appState.sidebar.sidebarStatus' + appState.sidebar.sidebarStatus );
-        // appState.sidebar.visible = !appState.sidebar.visible;
+
     },
 
-    // switchSidebarPanel(panelName) {
-    //     appState.sidebar.sidebarDashboardStatus = panelName;
-    // }
+
     
     switchTabButtons(tabName){
-            appState.sidebar.tabButtons = tabName;
+
+        const s = appState.sidebar;
+
+        // Сценарий А: Панель открыта и мы жмем на ТУ ЖЕ кнопку -> ЗАКРЫВАЕМ
+        if (s.sidebarDashboardStatus === 'open' && s.tabButtons === tabName) {
+            s.sidebarDashboardStatus = 'closed';
+            // tabButtons не зануляем, чтобы CSS понимал, какую вкладку "потушить" красиво
+            return; 
+        }
+
+        // Сценарий Б: Панель открыта, но мы жмем на ДРУГУЮ кнопку -> ПРОСТО МЕНЯЕМ ТАБ
+        if (s.sidebarDashboardStatus === 'open' && s.tabButtons !== tabName) {
+            s.tabButtons = tabName;
+            return;
+        }
+
+        // Сценарий В: Панель закрыта (неважно какая кнопка) -> ОТКРЫВАЕМ
+        s.sidebarDashboardStatus = 'open';
+        s.tabButtons = tabName;
             
+    },
+
+    closeOptionsBar(){
+        appState.sidebar.sidebarDashboardStatus = 'closed';
     }
 
 

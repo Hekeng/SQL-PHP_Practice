@@ -114,6 +114,7 @@
   overflow: hidden;
   width: auto;
   transition: max-width 0.4s; 
+  background-color: var(--color-surface);
 }
 
 .options.is-active { 

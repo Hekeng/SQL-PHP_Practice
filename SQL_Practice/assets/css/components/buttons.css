@@ -33,11 +33,15 @@
   display: none; 
   position: absolute;
   bottom: var(--space-md); /* Отступ снизу */
-  left: var(--space-md);   /* Отступ слева */
+  left: var(--space-sm);   /* Отступ слева */
   display: grid;
   grid-template-columns: 1fr;
   /* animation: float 4s ease-in-out infinite; */
   z-index: 1000;
+
+  flex-shrink: 0;
+  position: sticky;
+
 
 }
 

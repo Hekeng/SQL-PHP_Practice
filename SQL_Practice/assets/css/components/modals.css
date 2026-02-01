@@ -174,10 +174,7 @@
   transition: opacity 0.3s ease;
 }
 
-.auth-spacer {
-  flex-grow: 1; /* Забирает всё свободное пространство */
-  min-height: var(--space-md);
-}
+
 
 /* ================= LABEL / INPUT ================= */
 .auth-card label {
