@@ -4,10 +4,13 @@ require_once __DIR__ . '/config.php';
 require_once INCLUDES_PATH . '/helpers.php';
 require_once TEMPLATES_PATH . '/header.tpl';
 
-
+include 'test.php';
 ?>
 
+
+
 <div class="content-wrapper">
+
 
 <aside class="sidebar"
 		data-panel="sidebar">
@@ -94,8 +97,27 @@ require_once TEMPLATES_PATH . '/header.tpl';
                 <p>Please Sign In to customize your dashboard.</p>
 				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis sunt quod atque, qui rem est neque voluptate delectus! Et placeat nesciunt architecto labore minus cupiditate soluta eos deleniti facere eaque!tetur? Nulla dolore, earum ipsam odio iure explicabo culpa voluptatum fuga!
 				tempora placeat voluptatibus rerum atque?</p>
-            </div>
+				<form action="index.php" method="G">
+					<input type="text" name="city" placeholder="Введите город">
+					<button class="btn" type="submit">Отправить</button>
+				</form>
+			<?php
+// А теперь вызываем "безопасно"
+try {
+    // Если тут cityName будет пустым, конструктор выбросит исключение
+    // и строка с "echo" ниже ПЕРЕПРЫГНЕТСЯ сразу в блок catch
+    $myCity = new SearchRequest($_GET['city'] ?? ''); 
+    echo $myCity->display();
 
+} catch (Exception $e) {
+    // Мы поймали "петарду" и просто выводим текст ошибки
+    echo "<b style='color:red;'>" . $e->getMessage() . "</b>";
+}
+
+			?>
+
+
+            </div>
 
 
 		<div class="auth-overlay" 
