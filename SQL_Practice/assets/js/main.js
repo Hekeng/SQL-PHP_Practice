@@ -5,7 +5,7 @@ import { panelActions } from './actions.js';
 import { renderApp } from './render.js';
 
 document.addEventListener('click', handleActionClick);	
-document.addEventListener('submit', handleActionClick);	
+// document.addEventListener('submit', handleActionClick);	
 	
 function handleActionClick (event) {
 	if (event.type == 'submit') {

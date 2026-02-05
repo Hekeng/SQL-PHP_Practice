@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
+//STR
 // | Функция / Оператор   | Принимает               | Возвращает  | Назначение             |
 // | -------------------- | ----------------------- | ----------- | ---------------------- |
 // | `.`                  | string, string          | string      | конкатенация           |
@@ -21,6 +21,14 @@ error_reporting(E_ALL);
 // | `htmlspecialchars()` | string                  | string      | экранирование HTML     |
 // | `strcmp()`           | string, string          | int         | сравнение, сортировка  |
 // | `strcasecmp()`       | string, string          | int         | сравнение без регистра |
+
+// | Задача          | Пример                                                     | Объяснение                                                         |
+// | --------------- | ---------------------------------------------------------- | ------------------------------------------------------------------ |
+// | Проверка email  | `preg_match('/^[\w.-]+@[\w.-]+\.[a-z]{2,6}$/i', $login)`   | Разрешает буквы, цифры, точку, дефис до @ и после, проверяет домен |
+// | Проверка пароля | `preg_match('/^(?=.*[A-Z])(?=.*[0-9]).{6,}$/', $password)` | Минимум 6 символов, хотя бы 1 заглавная буква и 1 цифра            |
+// | Только буквы    | `preg_match('/^[a-zA-Z]+$/', $value)`                      | Строго буквы a-z или A-Z                                           |
+// | Только цифры    | `preg_match('/^\d+$/', $value)`                            | Строго цифры 0-9                                                   |
+
 
 //ARRAY
 
@@ -76,15 +84,42 @@ error_reporting(E_ALL);
 // | `filter_input`     | тип + имя  | mixed  | безопасный ввод |
 // | `filter_var`       | значение   | mixed  | валидация       |
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        echo "<br>";
+        echo "Зашел POST";
+       
+        validPost ();
+
+}
+
+function validPost (){
+        $errors = [];
+        $login = trim($_POST['new_user_login'] ?? '');
+        $password = trim($_POST['new_user_pas'] ?? '');
+        $confirm = trim($_POST['new_user_pas_rep'] ?? '');
+
+        if ($login === '' || $password === '' || $confirm === '') {
+            echo "Поля пустые";
+            $errors[] = "есть пустые значения";
+        }
+
+        if (strcmp($password, $confirm) !== 0) {
+            echo "Пароль не соответсвует подтверждению";
+            $errors[] = "Пароль не соответсвует подтверждению";
+        }
+
+        if (count($errors)) {
+           echo "OK";
+        }
+
+    }
+
+
+
 
 // $goods = ["Book", "Pensil", "Pen", "Paper"];
 // $result = in_array("Pen", $goods);
 // echo ($result) ?  "есть!" : "нету!";
-
-$prices = [10, 20, 30];
-
-$newPrices = array_map(fn($p) => $p * 1.19, $prices);
-
 
 // $orders = [
 //     "Order1" => [

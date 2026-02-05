@@ -98,12 +98,13 @@ include 'test.php';
                 <p>Please Sign In to customize your dashboard.</p>
 				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis sunt quod atque, qui rem est neque voluptate delectus! Et placeat nesciunt architecto labore minus cupiditate soluta eos deleniti facere eaque!tetur? Nulla dolore, earum ipsam odio iure explicabo culpa voluptatum fuga!
 				tempora placeat voluptatibus rerum atque?</p>
-				
+<!-- 
 				<form action="index.php" method="G">
 					<input type="text" name="city" placeholder="Введите город">
+					<input type="text">
 					<button class="btn" type="submit">Отправить</button>
-				</form>
-
+				</form> -->
+<a class="btn" href="index.php">Сбросить POST</a>
 
             </div>
 
@@ -197,7 +198,6 @@ include 'test.php';
 							placeholder="******">
 						<span class="error-text"></span>
 						<label for="new_user_pas_rep">Repeat Password</label>
-						
 						<input 
 							type="password"
 							name="new_user_pas_rep"
