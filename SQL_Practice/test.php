@@ -2,6 +2,207 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+
+// | Функция / Оператор   | Принимает               | Возвращает  | Назначение             |
+// | -------------------- | ----------------------- | ----------- | ---------------------- |
+// | `.`                  | string, string          | string      | конкатенация           |
+// | `strlen()`           | string                  | int         | длина в байтах         |
+// | `mb_strlen()`        | string                  | int         | длина в символах       |
+// | `strpos()`           | string, string          | int / false | позиция подстроки      |
+// | `substr()`           | string, int, int        | string      | извлечь часть          |
+// | `mb_substr()`        | string, int, int        | string      | UTF-8 версия           |
+// | `str_replace()`      | search, replace, string | string      | замена                 |
+// | `strtolower()`       | string                  | string      | lower                  |
+// | `strtoupper()`       | string                  | string      | upper                  |
+// | `mb_strtolower()`    | string                  | string      | UTF-8 lower            |
+// | `trim()`             | string                  | string      | убрать пробелы         |
+// | `strip_tags()`       | string                  | string      | убрать HTML            |
+// | `htmlspecialchars()` | string                  | string      | экранирование HTML     |
+// | `strcmp()`           | string, string          | int         | сравнение, сортировка  |
+// | `strcasecmp()`       | string, string          | int         | сравнение без регистра |
+
+//ARRAY
+
+// | Функция / конструкция | Принимает    | Возвращает | Для чего                    |
+// | --------------------- | ------------ | ---------- | --------------------------- |
+// | `count()`             | array        | int        | количество элементов        |
+// | `isset()`             | key          | bool       | ключ существует и не `null` |
+// | `array_key_exists()`  | key, array   | bool       | ключ существует             |
+// | `in_array()`          | value, array | bool       | значение есть               |
+// | `array_keys()`        | array        | array      | все ключи                   |
+// | `array_values()`      | array        | array      | все значения                |
+// | `array_merge()`       | array, array | array      | объединение                 |
+// | `foreach`             | array        | —          | перебор                     |
+
+
+// | Функция          | Что делает           | Возвращает        |
+// | ---------------- | -------------------- | ----------------- |
+// | `$arr[] = $v`    | добавить в конец     |                   |
+// | `array_push`     | добавить в конец     | кол-во элементов  |
+// | `array_pop`      | удалить последний    | удалённый элемент |
+// | `array_unshift`  | добавить в начало    | кол-во элементов  |
+// | `array_shift`    | удалить первый       | удалённый элемент |
+// | `unset($arr[k])` | удалить по ключу     | —                 |
+// | `array_splice`   | вырезать / вставить  | массив удалённых  |
+// | `sort`           | сорт по значениям    | bool              |
+// | `rsort`          | обратный sort        | bool              |
+// | `ksort`          | сорт по ключам       | bool              |
+// | `krsort`         | обратный ksort       | bool              |
+// | `usort`          | кастом сорт значений | bool              |
+// | `uksort`         | кастом сорт ключей   | bool              |
+
+//array_*
+
+// | Функция        | Что делает           | Принимает             | Возвращает  |
+// | -------------- | -------------------- | --------------------- | ----------- |
+// | `array_map`    | преобразует элементы | array, callback       | новый array |
+// | `array_filter` | фильтрует элементы   | array, callback       | новый array |
+// | `array_reduce` | сворачивает в одно   | array, callback, init | mixed       |
+// | `array_merge`  | объединяет массивы   | arrays                | array       |
+// | `array_keys`   | получить ключи       | array                 | array       |
+// | `array_values` | получить значения    | array                 | array       |
+// | `array_search` | найти значение       | value, array          | key / false |
+// | `array_column` | вытащить колонку     | array, key            | array       |
+
+//POST
+
+// | Функция            | Вход       | Выход  | Для чего        |
+// | ------------------ | ---------- | ------ | --------------- |
+// | `isset`            | переменная | bool   | существует ли   |
+// | `empty`            | переменная | bool   | пустая ли       |
+// | `trim`             | string     | string | убрать пробелы  |
+// | `htmlspecialchars` | string     | string | защита HTML     |
+// | `filter_input`     | тип + имя  | mixed  | безопасный ввод |
+// | `filter_var`       | значение   | mixed  | валидация       |
+
+
+// $goods = ["Book", "Pensil", "Pen", "Paper"];
+// $result = in_array("Pen", $goods);
+// echo ($result) ?  "есть!" : "нету!";
+
+$prices = [10, 20, 30];
+
+$newPrices = array_map(fn($p) => $p * 1.19, $prices);
+
+
+// $orders = [
+//     "Order1" => [
+//         "Name" => "Vasia",
+//         "goods" => [
+//             "cartofel" => 2.19,
+//             "carrot" => 1.49,
+//             "wasser" => 0.99
+//         ],
+//         "status" => "done"
+//     ],
+//     "Order2" => [
+//         "Name" => "Petia",
+//         "goods" => [
+//             "cartofel" => 2.19,
+//             "carrot" => 1.49
+//         ],
+//         "status" => "done"
+//     ],
+//    "Order3" => [
+//         "Name" => "Vasia",
+//         "goods" => [
+//             "cartofel" => 2.19
+
+//         ],
+//         "status" => "done"
+//     ],
+// ];
+
+// foreach ($orders as $order => $value) {
+
+//     $buyerName = $value['Name'];
+//     $itemCount = 0;
+
+//     foreach ($value['goods'] as $key => $value) {
+//         $itemCount = $itemCount+1;
+//     }
+//     echo "<p>"; //пробовал применить PHP_EOL, и \n чтото не хотят они переносить строку...
+//     echo "Заказ $order имеет $itemCount товаров";
+//     echo "</p>";
+// }
+
+// $users = [
+//     "User1" => [
+//         "Name" => "Vasia",
+//         "email" => "vasia@mail.com",
+//         "role" => "user"
+//     ],
+//     "User2" => [
+//         "Name" => "Petia",
+//         "email" => "petia@mail.com",
+//         "role" => "user"
+//     ],
+//     "User3" => [
+//         "Name" => "Inna",
+//         "email" => "inna@mail.com",
+//         "role" => "admin"
+//     ]
+// ];
+
+// foreach ($users as $key => $value) {
+//     if($value['role']){
+//         if($value['role'] == "admin")
+//             echo "администратор найден!!!!";
+//     } else {
+//        echo "чтото пошло не так!!!";
+//     }
+// }
+
+// $colors = ["Red", "Green", "Blue"];
+
+
+// $user = 'Alex';
+// $age = 25;
+
+// echo "Пользователь $user, возраст ".$age." лет!";
+
+// $str = 'Привет мир';
+// $bytes = strlen($str);
+// $symbols = mb_strlen($str);
+
+// echo "Потому что один сивмвол в латинском алфавите занимает 1 бит (8байт) или наоборот соответсвенно: $bytes != $symbols";
+
+// $str1 = "@adminexample.com";
+// $analisStr1;
+// if ($analisStr1 = strpos($str1, '@')){
+//     echo "символ @ нашелся!!! на позиции $analisStr1 ";
+// };
+// $login = substr($str1, 0, $analisStr1);
+// $domen = substr($str1, $analisStr1+1, mb_strlen($str1));
+// echo "User login is : $login User domein is: $domen";
+
+// $str2 = "HeLLo WoRLD"; 
+// $str2 = strtolower($str2);
+// echo "Str lower : $str2";
+// $str2 = strtoupper($str2);
+// echo "Str upper : $str2";
+
+// $str="Admin";
+// $str1 = "admin";
+// if ($str == $str1) {
+//     echo "Не строгое сравнение сравнивает в строке наверное смысл? ";
+// } elseif ($str === $str1){
+//     echo  "Строгое сравнение строк сравнивает скорее всего UTF коды";
+// } else{
+//     echo "Сравнивать строки в лоб глупость :))) ";
+// }
+
+// $laga = strcmp($str, $str1);
+
+// echo "!!!!!!!!!!!!!!!!$laga!!!!!!!!!!!!";
+
+// if(strcmp($str, $str1)){
+//     echo "не строгое сравнение :))) ";
+// } else{
+//      echo "не равны вот так правильно сравнивать строки :))) ";
+// };
+
 // Функция,									Если файла нет,											Повторное подключение того же файла
 // include,									Выдаст предупреждение (Warning), но продолжит работу 	Подключит файл еще раз.
 // require,									Выдаст фатальную ошибку и остановит скрипт.				,Подключит файл еще раз.
@@ -19,22 +220,126 @@ error_reporting(E_ALL);
 // $_ENV	Переменные окружения (например, настройки доступа к базе данных).
 // $GLOBALS	Ссылка на все переменные, объявленные в глобальной области видимости.
 
-class SearchRequest {
-    private $city;
 
-    public function __construct($cityName) {
-        // Мы используем if, чтобы проверить условие
-        if (empty($cityName) || $cityName === "город") {
-            // Но вместо return "ошибка", мы взрываем "петарду"
-            throw new Exception("Ошибка: Вы не ввели название города!");
-        }
-        $this->city = $cityName;
-    }
+// Метод,               Когда вызывается,                                                       Зачем нужен (Пример)
+// __construct(),       При создании объекта через new.,                                        Настройка начальных данных.
+// __destruct(),        Когда объект удаляется из памяти.,                                      Закрыть файл или соединение с БД.
+// __call(),            При вызове несуществующего метода.,                                     Гибкие «виртуальные» методы (как в Laravel).
+// __get(),             При попытке прочитать скрытое/несуществующее свойство.,                 Доступ к данным из массива как к свойствам.
+// __set(),             При попытке записи в скрытое свойство.,                                 Валидация данных перед записью.
+// __toString(),        "Когда объект пытаются использовать как строку (например, echo $obj).", Красивый вывод объекта.
+// __invoke(),          Когда объект вызывают как функцию: $obj().,                             Создание «объектов-функций».
 
-    public function display() {
-        return "Вы ищете: " . $this->city;
-    }
-}
+// Символ,          Название,           Что делает
+// \n,              Line Feed,          Перенос на новую строку.
+// \r,              Carriage Return,    Возврат каретки (в начало строки).
+// \t,              Tab,                Горизонтальная табуляция (отступ).
+// PHP_EOL,         End of Line,        Правильный перенос строки для текущей ОС.
+
+
+
+
+
+// class Logger{
+
+//     public static function log($message){
+//         return $message ." ".date("Y-m-d H:i:s");
+//     }
+
+// }
+
+// Создай класс User.
+
+// Сделай свойство private $name;.
+
+// Реализуй магический метод __set($key, $value), который будет записывать имя, но только если его длина больше 3 символов. Если меньше — выбрасывай throw new Exception.
+
+// Реализуй магический метод __get($key), который будет возвращать имя капсом (используй strtoupper()).
+
+// class User {
+
+//     private $name;
+
+//     public function __set($key, $value){
+
+//         try {
+//             set_name($key);//условие иф подчеркивал редактор я не понял по чему :((( поэтому создал метод
+//         } catch (Exception $e) {
+//             echo "Поймали ошибку: " . $e->getMessage('Длина имени меньше трех символов');
+//         }
+
+//     };
+
+//     public function __get(){
+//         return $nameCapital = str(self::$name)->upper();
+//     };
+
+//     public function set_name($key){
+//         if (str($key) <= 3) {
+//             self::$name = $key;
+//         }
+//     }
+
+
+// }
+
+// // А теперь вызываем "безопасно"
+// try {
+//     // Если тут cityName будет пустым, конструктор выбросит исключение
+//     // и строка с "echo" ниже ПЕРЕПРЫГНЕТСЯ сразу в блок catch
+//     $myCity = new SearchRequest($_GET['city'] ?? ''); 
+//     echo $myCity->display();
+
+// } catch (Exception $e) {
+//     // Мы поймали "петарду" и просто выводим текст ошибки
+//     echo "<b style='color:red;'>" . $e->getMessage() . "</b>";
+// }
+
+// class Calculator {
+//     public static $pi = 3.14;
+
+//     public static function add($a, $b) {
+//         return $a + $b;
+//     }
+// }
+
+// Вызываем через ДВОЕТОЧИЕ (Scope Resolution Operator)
+// echo Calculator::add(5, 10); 
+// echo Calculator::$pi;
+
+
+// class DB {
+//     private static $connection = null;
+
+//     public static function connect() {
+//         if (self::$connection === null) {
+//             // Создаем подключение один раз на весь проект
+//             self::$connection = new PDO("mysql:host=localhost;dbname=test", "root", "");
+//         }
+//         return self::$connection;
+//     }
+// }
+
+// // Теперь в любой точке кода ты просто пишешь:
+// $db = DB::connect();
+
+
+// class SearchRequest {
+//     private $city;
+
+//     public function __construct($cityName) {
+//         // Мы используем if, чтобы проверить условие
+//         if (empty($cityName) || $cityName === "город") {
+//             // Но вместо return "ошибка", мы взрываем "петарду"
+//             throw new Exception("Ошибка: Вы не ввели название города!");
+//         }
+//         $this->city = $cityName;
+//     }
+
+//     public function display() {
+//         return "Вы ищете: " . $this->city;
+//     }
+// }
 
 
 
@@ -85,7 +390,7 @@ class SearchRequest {
 //      echo "Ошибка подключения: " . $e->getMessage();
 // }
 
-$colors = ["Red", "Green", "Blue"];
+
 
 
 
