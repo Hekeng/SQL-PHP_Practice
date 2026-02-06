@@ -117,6 +117,31 @@ error_reporting(E_ALL);
 // $GLOBALS	Ссылка на все переменные, объявленные в глобальной области видимости.
 
 
+//http://localhost/SQL_practice/index.php?page=2&sort=price&order=asc
+// $_SERVER['REQUEST_URI']
+// // /SQL_practice/index.php?page=2&sort=price&order=asc
+
+// $_SERVER['QUERY_STRING']
+// // page=2&sort=price&order=asc
+
+// $_SERVER['SCRIPT_NAME']
+// // /SQL_practice/index.php
+
+// $_SERVER['PHP_SELF']
+// // /SQL_practice/index.php
+
+// $_SERVER['REQUEST_METHOD']   // GET | POST | PUT | DELETE
+// $_SERVER['REQUEST_URI']      // /index.php?page=2
+// $_SERVER['QUERY_STRING']     // page=2&sort=asc
+// $_SERVER['HTTP_HOST']        // example.com
+// $_SERVER['HTTP_REFERER']     // откуда пришли (если есть)
+// $_SERVER['HTTP_USER_AGENT']  // браузер
+// $_SERVER['REMOTE_ADDR']      // IP клиента
+// $_SERVER['SCRIPT_NAME']      // /index.php
+
+
+
+
 //POST
 
 // | Функция            | Как пишется                     | Вход    | Выход  | Для чего       |
@@ -140,26 +165,73 @@ error_reporting(E_ALL);
 // | `filter_input`     | тип + имя  | mixed  | безопасный ввод |
 // | `filter_var`       | значение   | mixed  | валидация       |
 
+session_start();
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET'){
-
+function doSms() {
     $analis_var = $_GET;
 
-    // dd($analis_var);
+    $errors = validateRegister ($analis_var);
+
+
+    if (count($errors) > 0) {
+       $_SESSION['errors'] = $errors;
+    } else {
+        printData($analis_var);
+    }
+
+}
+
+function validateRegister ($analis_var){
+
+    if ($_SERVER['REQUEST_METHOD'] === 'GET'){
+        
+        $errors = [];
+
+        if(!isset($analis_var['page'])){
+            $errors['page'] = 'не существует';
+        }
+
+        if (!preg_match('/^\d+$/', $analis_var['page'])) {
+            $errors['page'] = 'значение не число';
+        }
+
+        if ($analis_var['page'] < 0) {
+            $errors['page'] = 'значение меньше нуля';
+        }
+        
+            return $errors;
+        
+    }
+}
+
+function printData($analis_var){
+    
+    echo 'Страница: '.$analis_var['page'];
+    echo 'Сортировка: '.$analis_var['sort'];
+    echo 'Порядок: '.$analis_var['order'];
 
     foreach ($analis_var as $key => $value) {
         echo "<br>";
         echo "Ключи:$key Значения: $value";
     }
 
-}
 
-$array = [
-  "page" => "2",
-  "sort" => "price",
-  "order" => "asc"
-];
+
+}
+doSms();
+
+    // dd(preg_match('/^\d+$/', $analis_var['page']));
+
+    // foreach ($analis_var as $key => $value) {
+    //     echo "<br>";
+    //     echo "Ключи:$key Значения: $value";
+    // }
+// $array = [
+//   "page" => "2",
+//   "sort" => "price",
+//   "order" => "asc"
+// ];
 
 
 // $_POST_Imitation = [
@@ -170,13 +242,13 @@ $array = [
 //     ]
 // ];
 
-if ($_POST_Imitation) {
-isset($_POST_Imitation['profile']['name']);
-isset($_POST_Imitation['profile']['email']);
-isset($_POST_Imitation['profile']['skills']);
-is_array($_POST_Imitation['profile']['skills']);
-count($_POST_Imitation['profile']['skills']) > 0;
-}
+// if ($_POST_Imitation) {
+// isset($_POST_Imitation['profile']['name']);
+// isset($_POST_Imitation['profile']['email']);
+// isset($_POST_Imitation['profile']['skills']);
+// is_array($_POST_Imitation['profile']['skills']);
+// count($_POST_Imitation['profile']['skills']) > 0;
+// }
 
 // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 //     echo "<br>";
