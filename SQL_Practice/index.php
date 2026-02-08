@@ -4,7 +4,9 @@ require_once __DIR__ . '/config.php';
 require_once INCLUDES_PATH . '/helpers.php';
 require_once TEMPLATES_PATH . '/header.tpl';
 
-include 'test.php';
+// include 'login.php';
+
+
 
 ?>
 
@@ -154,7 +156,7 @@ include 'test.php';
 							name="auth_form_login" 
 							data-action="loginAsUser"
 							data-value="user"
-							action="" 
+							action="login.php" 
 							method="post">
 						<h2 class="sr-only">Authorization Form</h2>
 						<label for="user_login">E-mail</label>
@@ -181,6 +183,7 @@ include 'test.php';
 						id="reg_window" 
 						data-action="loginAsUser"
 						data-value="user"
+						action="login.php"
 						method="post">
 						<h2 class="sr-only">Registration Form</h2>
 						<label for="new_user_login">E-mail</label>

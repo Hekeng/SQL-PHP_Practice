@@ -9,7 +9,7 @@ document.addEventListener('click', handleActionClick);
 	
 function handleActionClick (event) {
 	if (event.type == 'submit') {
-            event.preventDefault();
+            // event.preventDefault();
             console.log(event.type);
     }
     const targetElement = event.target.closest('[data-action]');

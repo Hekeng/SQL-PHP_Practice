@@ -164,62 +164,62 @@ error_reporting(E_ALL);
 // | `htmlspecialchars` | string     | string | защита HTML     |
 // | `filter_input`     | тип + имя  | mixed  | безопасный ввод |
 // | `filter_var`       | значение   | mixed  | валидация       |
-
-session_start();
-
-
-function doSms() {
-    $analis_var = $_GET;
-
-    $errors = validateRegister ($analis_var);
+/////////////////////////////////////////////////////////////////////////////////////////
+// session_start();
 
 
-    if (count($errors) > 0) {
-       $_SESSION['errors'] = $errors;
-    } else {
-        printData($analis_var);
-    }
+// function doSms() {
+//     $analis_var = $_GET;
 
-}
+//     $errors = validateRegister ($analis_var);
 
-function validateRegister ($analis_var){
 
-    if ($_SERVER['REQUEST_METHOD'] === 'GET'){
+//     if (count($errors) > 0) {
+//        $_SESSION['errors'] = $errors;
+//     } else {
+//         printData($analis_var);
+//     }
+
+// }
+
+// function validateRegister ($analis_var){
+
+//     if ($_SERVER['REQUEST_METHOD'] === 'GET'){
         
-        $errors = [];
+//         $errors = [];
 
-        if(!isset($analis_var['page'])){
-            $errors['page'] = 'не существует';
-        }
+//         if(!isset($analis_var['page'])){
+//             $errors['page'] = 'не существует';
+//         }
 
-        if (!preg_match('/^\d+$/', $analis_var['page'])) {
-            $errors['page'] = 'значение не число';
-        }
+//         if (!preg_match('/^\d+$/', $analis_var['page'])) {
+//             $errors['page'] = 'значение не число';
+//         }
 
-        if ($analis_var['page'] < 0) {
-            $errors['page'] = 'значение меньше нуля';
-        }
+//         if ($analis_var['page'] < 0) {
+//             $errors['page'] = 'значение меньше нуля';
+//         }
         
-            return $errors;
+//             return $errors;
         
-    }
-}
+//     }
+// }
 
-function printData($analis_var){
+// function printData($analis_var){
     
-    echo 'Страница: '.$analis_var['page'];
-    echo 'Сортировка: '.$analis_var['sort'];
-    echo 'Порядок: '.$analis_var['order'];
+//     echo 'Страница: '.$analis_var['page'];
+//     echo 'Сортировка: '.$analis_var['sort'];
+//     echo 'Порядок: '.$analis_var['order'];
 
-    foreach ($analis_var as $key => $value) {
-        echo "<br>";
-        echo "Ключи:$key Значения: $value";
-    }
+//     foreach ($analis_var as $key => $value) {
+//         echo "<br>";
+//         echo "Ключи:$key Значения: $value";
+//     }
 
 
 
-}
-doSms();
+// }
+// doSms();
 
     // dd(preg_match('/^\d+$/', $analis_var['page']));
 
